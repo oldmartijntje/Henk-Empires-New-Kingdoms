@@ -19,4 +19,35 @@ function getCorrectImage($imageTag) {
     }
 }
 
+function logArray($array) {
+    echo "<pre>";
+    print_r($array);
+    echo "</pre>";
+}
+
+function returnItems($selectionList = [], $amountOfSelectionList = 0) {
+    $chosen = [];
+    for ($i=0; $i < $amountOfSelectionList; $i++) { 
+        $tempOption = rand(0, count($selectionList)-1);
+        array_push($chosen, $selectionList[$tempOption]);
+        array_splice($selectionList, $tempOption, 1);
+    }
+    return $chosen;
+}
+
+function generateRandom($options, $emptyModel, $selectionList = [], $amountOfSelectionList = 0) {
+    $random = $emptyModel;
+    foreach ($options as $key => $value) {
+        if (!in_array($key, $selectionList)) {
+            $random[$key] = $value[array_rand($value)];
+        }
+    }
+    $chosen = returnItems($selectionList, $amountOfSelectionList);
+    foreach ($chosen as $value) {
+        $val = array_rand($options[$value]);
+        $random[$value] = $options[$value][$val];
+    }
+    return $random;
+}
+
 ?>

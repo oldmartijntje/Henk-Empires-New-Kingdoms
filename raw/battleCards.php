@@ -37,6 +37,31 @@ $definedBattleCards = [
     "series" => ""]
 ];
 
+$emptyModel = [
+    "power" => 0,
+    "energy" => 0,
+    "balance" => 0,
+    "onReveal" => "",
+    "onGoing" => "",
+    "special" => "",
+    "type" => "",
+    "series" => ""
+];
+
+$blacklistedKeys = ["id", "shopCost", "deck", "name", "image","description"];
+
+$possibleOptions = [
+    "power" => [],
+    "energy" => [],
+    "balance" => [],
+    "onReveal" => [],
+    "onGoing" => [],
+    "special" => [],
+    "type" => [],
+    "series" => []
+];
+
+
 function calculateCost($card, $index, $BattleCardConfig) {
     if (isset($card["balance"])) {
         $card["shopCost"] = ($card["balance"] * $BattleCardConfig["CostBalanceMultiplier"]) + $BattleCardConfig["CostAddition"];
@@ -69,12 +94,31 @@ function getImage($card, $index, $BattleCardConfig) {
     }
 }
 
+function createCard($card, $index, $BattleCardConfig) {
+    $card = calculateCost($card, $index, $BattleCardConfig);
+    $card = calculateDeck($card, $index, $BattleCardConfig);
+    $card = calculateId($card, $index + 1, $BattleCardConfig["id"]);
+    $card = getImage($card, $index, $BattleCardConfig);
+    return $card;
+}
+
 require "shared/functions.php";
 
 for ($x = 0; $x < count($definedBattleCards); $x++) {
-    $definedBattleCards[$x] = calculateCost($definedBattleCards[$x], $x, $BattleCardConfig);
-    $definedBattleCards[$x] = calculateDeck($definedBattleCards[$x], $x, $BattleCardConfig);
-    $definedBattleCards[$x] = calculateId($definedBattleCards[$x], $x + 1, $BattleCardConfig["id"]);
-    $definedBattleCards[$x] = getImage($definedBattleCards[$x], $x, $BattleCardConfig);
+    $definedBattleCards[$x] = createCard($definedBattleCards[$x], $x, $BattleCardConfig);
+}
+
+foreach ($definedBattleCards as $card) {
+    foreach($card as $key=>$value) {
+        if (in_array($key, $blacklistedKeys)) {
+            continue;
+        } else {
+            if (in_array($value, $possibleOptions[$key])) {
+                continue;
+            } else {
+                array_push($possibleOptions[$key],$value);
+            }
+        }
+    }
 }
 ?>

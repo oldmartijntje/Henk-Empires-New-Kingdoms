@@ -15,7 +15,14 @@ if ($amountOfCards == "all") {
 }
 
 if (isset($_GET['type']) && $_GET['type'] == "random") {
-    
+    $cards = array();
+    for ($j=0; $j < $amountOfCards ; $j++) { 
+        $randomCard = generateRandom($possibleOptions, $emptyModel, ["onReveal", "onGoing", "special"], 1);
+        $randomCard = createCard($randomCard, $j, $BattleCardConfig);
+        $randomCard['name'] = "Randomized Card";
+        $randomCard['image'] = getCorrectImage("error");
+        array_push($cards, $randomCard);
+    }
 } else {
     if ($amountOfCards > count($definedBattleCards)) {
         $amountOfCards = count($definedBattleCards);
@@ -32,9 +39,11 @@ for ($i=0; $i < $amountOfCards; $i++) {
     </div>
     <div class="card-image">
         <img src="<?php echo $cards[$i]['image'] ?>" alt="<?php echo $cards[$i]['name'] ?>">
+        <?php if (isset($cards[$i]['series']) && $cards[$i]['series'] != "") { ?>
         <div class="series-icon">
             <img src="<?php echo getCorrectImage($cards[$i]['series']) ?>" alt="Henk Series Icon">
         </div>
+        <?php } ?>
         <div class="type-icon">
             <img src="<?php echo getCorrectImage($cards[$i]['type']) ?>" alt="<?php echo $cards[$i]['type'] ?> Type Icon">
         </div>
@@ -50,27 +59,32 @@ for ($i=0; $i < $amountOfCards; $i++) {
                 <span class="IconNumber"><?php echo $cards[$i]['energy'] ?></span>
             </div>
         </div>
-        <div class="description">
-            <span>"<?php echo $cards[$i]['description'] ?>"</span>
-        </div>
+        <?php if (isset($cards[$i]['description']) && $cards[$i]['description'] != "") { ?>
+            <div class="description">
+                <span>"<?php echo $cards[$i]['description'] ?>"</span>
+            </div>
+        <?php } if (isset($cards[$i]['onReveal']) && $cards[$i]['onReveal'] != "") { ?>
         <div class="ability">
             <span>
                 <img class="Icon" src="assets/icons/onreveal.png" alt="On Reveal Ability Icon">
-                <?php echo $cards[$i]['onreveal'] ?>
+                <?php echo $cards[$i]['onReveal'] ?>
             </span>
         </div>
+        <?php } if (isset($cards[$i]['onGoing']) && $cards[$i]['onGoing'] != "") { ?>
         <div class="ability">
             <span>
                 <img class="Icon" src="assets/icons/ongoing.png" alt="Ongoing Ability Icon">
-                <?php echo $cards[$i]['ongoing'] ?>
+                <?php echo $cards[$i]['onGoing'] ?>
             </span>
         </div>
+        <?php } if (isset($cards[$i]['special']) && $cards[$i]['special'] != "") { ?>
         <div class="ability">
             <span>
                 <img class="Icon" src="assets/icons/special.png" alt="Special Ability Icon">
                 <?php echo $cards[$i]['special'] ?>
             </span>
         </div>
+        <?php } ?>
     </div>
     <div class="card-footer">
         <div class="deck">Deck <?php echo $cards[$i]['deck'] ?></div>

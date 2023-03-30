@@ -25,6 +25,7 @@ $imagesDictionary = [
     "Power" => "assets/icons/power.png",
     "Energy" => "assets/icons/energy.png",
     "Henk" => "assets/icons/henk.png",
+    "error" => "assets/images/error.png",
 ];
 
 ?>
