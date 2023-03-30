@@ -12,6 +12,19 @@ $BattleCardConfig = [
 $GenerationSettings = [
     "defaultCardsAmount" => "all",
     "randomCardsAmount" => 18,
-]
+];
+
+$imagesDictionary = [
+    "Stone" => "assets/icons/stone.png",
+    "Electric" => "assets/icons/electric.png",
+    "Fire" => "assets/icons/fire.png",
+    "Water" => "assets/icons/water.png",
+    "Wind" => "assets/icons/wind.png",
+    "Earth" => "assets/icons/earth.png",
+    "404nf" => "assets/icons/404nf.png",
+    "Power" => "assets/icons/power.png",
+    "Energy" => "assets/icons/energy.png",
+    "Henk" => "assets/icons/henk.png",
+];
 
 ?>

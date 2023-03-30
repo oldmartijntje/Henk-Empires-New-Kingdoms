@@ -1,5 +1,5 @@
 <?php 
-require "../shared/config.php";
+require "shared/config.php";
 
 $definedBattleCards = [
     ["name" => "",
@@ -69,16 +69,12 @@ function getImage($card, $index, $BattleCardConfig) {
     }
 }
 
-require "../shared/functions.php";
+require "shared/functions.php";
 
 for ($x = 0; $x < count($definedBattleCards); $x++) {
     $definedBattleCards[$x] = calculateCost($definedBattleCards[$x], $x, $BattleCardConfig);
     $definedBattleCards[$x] = calculateDeck($definedBattleCards[$x], $x, $BattleCardConfig);
     $definedBattleCards[$x] = calculateId($definedBattleCards[$x], $x + 1, $BattleCardConfig["id"]);
     $definedBattleCards[$x] = getImage($definedBattleCards[$x], $x, $BattleCardConfig);
-    echo $definedBattleCards[$x]["id"] . " ";
-    echo $definedBattleCards[$x]["deck"] . " ";
-    echo $definedBattleCards[$x]["shopCost"] . " ";
-    echo $definedBattleCards[$x]["image"] . " ";
 }
 ?>
