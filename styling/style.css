@@ -1,6 +1,7 @@
 .table {
-
-    background-color: #efefef;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #ffffff;
     padding: 10px;
 }
 
