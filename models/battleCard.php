@@ -1,3 +1,19 @@
+<?php
+$amountOfCards = 0;
+require "shared/config.php";
+
+if (isset($_GET['amount']) && (is_numeric($_GET['amount']) || ($_GET['amount'] == "all" && (isset($_GET['type']) && $_GET['type'] == "default")))) {
+    $amountOfCards = $_GET['amount'];
+
+} else if (isset($_GET['type']) && $_GET['type'] == "default") {
+    $amountOfCards = $GenerationSettings["defaultCardsAmount"];
+} else {
+    $amountOfCards = $GenerationSettings["randomCardsAmount"];;   
+}
+
+?>
+
+
 <div class="card">
         <div class="card-header">
             <div class="name">Henk the Stone</div>
@@ -50,4 +66,4 @@
             <div class="deck">Deck A</div>
             <div class="shop-cost">Shop Cost: 12</div>
         </div>
-    </div>
+    </div> 

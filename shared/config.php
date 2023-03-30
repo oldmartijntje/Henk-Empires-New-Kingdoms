@@ -9,4 +9,9 @@ $BattleCardConfig = [
     "defaultImage" => "assets/images/404nf.png"
 ];
 
+$GenerationSettings = [
+    "defaultCardsAmount" => "all",
+    "randomCardsAmount" => 18,
+]
+
 ?>
