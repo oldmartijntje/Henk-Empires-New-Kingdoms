@@ -69,6 +69,7 @@
             </div>
         </div>
         <div class="card-footer">
+            <div class="deck">Deck A</div>
             <div class="shop-cost">Shop Cost: 12</div>
         </div>
     </div>

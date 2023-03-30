@@ -114,11 +114,12 @@
     background-color: #ffdca3;
     color: #6f413b;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     padding: 5px 10px;
 }
 
-.card-footer .shop-cost {
+.card-footer .shop-cost,
+.card-footer .deck {
     font-size: 12px;
     font-weight: bold;
 }
