@@ -7,7 +7,7 @@
 </head>
 <body>
     <a href="?page=home" class="websiteTitle menuItem whiteText">Home</a>
-    <a href="?page=battleCards&type=default" class="websiteTitle menuItem whiteText">battleCards preset</a>
-    <a href="?page=battleCards&type=random" class="websiteTitle menuItem whiteText">battleCards randomized</a>
+    <a href="?page=battleCards&type=default&amount=18" class="websiteTitle menuItem whiteText">battleCards preset</a>
+    <a href="?page=battleCards&type=random&amount=18" class="websiteTitle menuItem whiteText">battleCards randomized</a>
 </body>
 </html>

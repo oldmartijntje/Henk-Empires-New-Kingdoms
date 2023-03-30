@@ -11,15 +11,16 @@
 <body>
 <div class="table">
 <?php
-    require "models/battleCard.php";
-    require "models/battleCard.php";
-    require "models/battleCard.php";
-    require "models/battleCard.php";
-    require "models/battleCard.php";
-    require "models/battleCard.php";
-    require "models/battleCard.php";
-    require "models/battleCard.php";
-    require "models/battleCard.php";
+    $loadDict = array(
+        "battleCards" => "models/battleCard.php",);
+    
+    if (isset($_GET['page'])) {
+        if (array_key_exists($_GET['page'], $loadDict)) {
+            require $loadDict[$_GET['page']];
+        } else {
+            require 'models/error.php';
+        }
+    }
 ?>
 </div>
 </body>

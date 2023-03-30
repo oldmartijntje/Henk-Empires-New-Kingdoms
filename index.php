@@ -9,7 +9,8 @@
 <body>
     <?php $redirectDict = array(
         'home' => 'pages/home.php',
-        "battleCards" => "pages/cardDesign.php",);
+        "battleCards" => "pages/cardDesign.php",
+    );
     ?>
 
     <?php if (isset($_GET['page'])) {
