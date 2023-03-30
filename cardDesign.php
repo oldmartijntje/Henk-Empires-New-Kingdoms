@@ -25,15 +25,15 @@
                 "series" => "Henk"]];
 ?>
 <body>
-    <div class="table">
-        <div class="card">
-            <div class="card-header">
-                <div class="name">Henk the Stone</div>
-                <div class="id">B002</div>
-            </div>
-            <div class="card-image">
-                <img src="assets/images/B002.png" alt="Henk the Stone">
-                <div class="series-icon">
+<div class="table">
+    <div class="card">
+        <div class="card-header">
+            <div class="name">Henk the Stone</div>
+            <div class="id">B002</div>
+        </div>
+        <div class="card-image">
+            <img src="assets/images/B002.png" alt="Henk the Stone">
+            <div class="series-icon">
                 <img src="assets/icons/henk.png" alt="Henk Series Icon">
             </div>
             <div class="type-icon">
@@ -41,17 +41,18 @@
             </div>
         </div>
         <div class="card-info">
-            <div class="power iconWithNumber">
-                <img src="assets/icons/power.png" alt="Power Icon BackgroundIcon">
-                <span class="IconNumber">1</span>
-            </div>
-            <div class="energy iconWithNumber">
-                <img src="assets/icons/energy.png" alt="Energy Icon BackgroundIcon">
-                <span class="IconNumber">0</span>
+            <div class="IconsDisplayBox">
+                <div class="power iconWithNumber">
+                    <img src="assets/icons/power.png" alt="Power Icon BackgroundIcon">
+                    <span class="IconNumber">1</span>
+                </div>
+                <div class="energy iconWithNumber">
+                    <img src="assets/icons/energy.png" alt="Energy Icon BackgroundIcon">
+                    <span class="IconNumber">0</span>
+                </div>
             </div>
             <div class="description">
-                <img src="assets/icons/description.png" alt="Description Icon">
-                <span>You are my rock</span>
+                <span>"You are my rock"</span>
             </div>
             <!-- Display only one of the following abilities -->
             <div class="ability">
@@ -71,5 +72,6 @@
             <div class="shop-cost">Shop Cost: 12</div>
         </div>
     </div>
+</div>
 </body>
 </html>
