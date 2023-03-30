@@ -56,16 +56,22 @@
             </div>
             <!-- Display only one of the following abilities -->
             <div class="ability">
-                <img src="assets/icons/onreveal.png" alt="On Reveal Ability Icon">
-                <span>On Reveal Ability</span>
+                <span>
+                    <img class="Icon" src="assets/icons/onreveal.png" alt="On Reveal Ability Icon">
+                    On Reveal Ability
+                </span>
             </div>
             <div class="ability">
-                <img src="assets/icons/ongoing.png" alt="Ongoing Ability Icon">
-                <span>Ongoing Ability</span>
+                <span>
+                    <img class="Icon" src="assets/icons/ongoing.png" alt="Ongoing Ability Icon">
+                    Ongoing Ability
+                </span>
             </div>
             <div class="ability">
-                <img src="assets/icons/special.png" alt="Special Ability Icon">
-                <span>Special Ability</span>
+                <span>
+                    <img class="Icon" src="assets/icons/special.png" alt="Special Ability Icon">
+                    Special Ability
+                </span>
             </div>
         </div>
         <div class="card-footer">
