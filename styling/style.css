@@ -1,0 +1,179 @@
+.card {
+    width: 200px;
+    height: 300px;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header .name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.card-header .id {
+    font-size: 12px;
+}
+
+.card-image {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-image img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px;
+}
+
+.series-icon {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+.series-icon img {
+    width: 30px;
+    height: 30px;
+}
+
+.type-icon {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+
+.type-icon img {
+    width: 30px;
+    height: 30px;
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+}
+
+.card {
+    width: 200px;
+    height: 300px;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header .name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.card-header .id {
+    font-size: 12px;
+}
+
+.card-image {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-image img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px;
+}
+
+.series-icon {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+.series-icon img {
+    width: 30px;
+    height: 30px;
+}
+
+.type-icon {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+
+.type-icon img {
+    width: 30px;
+    height: 30px;
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+}
+
+.card-info .power img,
+.card-info .energy img,
+.card-info .description img,
+.card-info .ability img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.card-info .power span,
+.card-info .energy span,
+.card-info .description span,
+.card-info .ability span {
+    font-size: 16px;
+}
+
+.card-info .ability {
+    display: none;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 12px;
+}
+
+.card-footer .shop-cost {
+    font-weight: bold;
+}
+
+/* Show only one ability depending on the card */
+.card-info .onReveal+.ability,
+.card-info .onGoing+.ability,
+.card-info .special+.ability {
+    display: flex;
+}
