@@ -11,10 +11,11 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    width: 200px;
-    height: 300px;
-    max-width: 200px;
-    max-height: 300px;
+    width: 300px;
+    height: 450px;
+    max-width: 300px;
+    max-height: 450px;
+    position: relative;
 }
 
 .card-header {
@@ -75,6 +76,8 @@
     flex-direction: column;
     padding: 10px;
     text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .iconWithNumber {
@@ -113,6 +116,9 @@
     display: flex;
     justify-content: space-between;
     padding: 5px 10px;
+    position: absolute;
+    bottom: 0;
+    width: calc(100% - 20px);
 }
 
 .card-footer .shop-cost,
