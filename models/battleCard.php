@@ -17,10 +17,14 @@ if ($amountOfCards == "all") {
 if (isset($_GET['type']) && $_GET['type'] == "random") {
     $cards = array();
     for ($j=0; $j < $amountOfCards ; $j++) { 
-        $randomCard = generateRandom($possibleOptions, $emptyModel, ["onReveal", "onGoing", "special"], 1);
+        $randomCard = generateRandom($possibleOptions, $emptyModel, ["onReveal", "onGoing", "special"], 2);
+        $randomCard['balance'] = $randomCard['power'] - $randomCard['energy'];
         $randomCard = createCard($randomCard, $j, $BattleCardConfig);
         $randomCard['name'] = "Randomized Card";
         $randomCard['image'] = getCorrectImage("error");
+        $randomCard['id'] = "B???";
+        $randomCard['shopCost'] = "???";
+        $randomCard['deck'] = "???";
         array_push($cards, $randomCard);
     }
 } else {

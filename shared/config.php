@@ -15,12 +15,11 @@ $GenerationSettings = [
 ];
 
 $imagesDictionary = [
-    "Stone" => "assets/icons/stone.png",
     "Electric" => "assets/icons/electric.png",
     "Fire" => "assets/icons/fire.png",
     "Water" => "assets/icons/water.png",
     "Wind" => "assets/icons/wind.png",
-    "Earth" => "assets/icons/earth.png",
+    "Earth" => "assets/icons/stone.png",
     "404nf" => "assets/icons/404nf.png",
     "Power" => "assets/icons/power.png",
     "Energy" => "assets/icons/energy.png",
