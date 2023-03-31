@@ -33,6 +33,7 @@ $imagesDictionary = [
     "error" => "assets/images/error.png",
     "Green" => "assets/icons/green.png",
     "mushroom" => "assets/icons/mushroom.png",
+    "revolution" => "assets/icons/revolution.png",
 ];
 
 ?>
