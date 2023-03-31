@@ -29,7 +29,9 @@ function returnItems($selectionList = [], $amountOfSelectionList = 0) {
     $chosen = [];
     for ($i=0; $i < $amountOfSelectionList; $i++) { 
         $tempOption = rand(0, count($selectionList)-1);
-        array_push($chosen, $selectionList[$tempOption]);
+        if ($selectionList[$tempOption] != '') {
+            array_push($chosen, $selectionList[$tempOption]);
+        }
         array_splice($selectionList, $tempOption, 1);
     }
     return $chosen;
@@ -48,6 +50,21 @@ function generateRandom($options, $emptyModel, $selectionList = [], $amountOfSel
         $random[$value] = $options[$value][$val];
     }
     return $random;
+}
+
+function getTextSizeClass($card) {
+    $totalText = $card['description'] . $card['onReveal'] . $card['onGoing'] . $card['special'];
+    if (strlen($totalText) > 200) {
+        echo "textSize7px";
+    } else if (strlen($totalText) > 170) {
+        echo "textSize8px";
+    } else if (strlen($totalText) > 140) {
+        echo "textSize9px";
+    } else if (strlen($totalText) > 110) {
+        echo "textSize10px";
+    } else if (strlen($totalText) > 80) {
+        echo "textSize11px";
+    }
 }
 
 ?>

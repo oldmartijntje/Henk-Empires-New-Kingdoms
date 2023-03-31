@@ -7,7 +7,11 @@ $BattleCardConfig = [
     "DeckMaxPowerLevel" => 5,
     "id" => "B%s",
     "defaultImage" => "assets/images/404nf.png",
-    "defaultName" => "Dead Link"
+    "defaultName" => "Dead Link",
+    "randomization" => [
+        "chooseBetween" => ["onReveal", "onGoing", "special", ""],
+        "amount" => 2
+    ]
 ];
 
 $GenerationSettings = [
@@ -26,6 +30,7 @@ $imagesDictionary = [
     "Energy" => "assets/icons/energy.png",
     "Henk" => "assets/icons/henk.png",
     "error" => "assets/images/error.png",
+    "Green" => "assets/icons/green.png",
 ];
 
 ?>

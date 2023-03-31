@@ -17,7 +17,7 @@ if ($amountOfCards == "all") {
 if (isset($_GET['type']) && $_GET['type'] == "random") {
     $cards = array();
     for ($j=0; $j < $amountOfCards ; $j++) { 
-        $randomCard = generateRandom($possibleOptions, $emptyModel, ["onReveal", "onGoing", "special"], 2);
+        $randomCard = generateRandom($possibleOptions, $emptyModel, $BattleCardConfig['randomization']['chooseBetween'], $BattleCardConfig['randomization']['amount']);
         $randomCard['balance'] = $randomCard['power'] - $randomCard['energy'];
         $randomCard = createCard($randomCard, $j, $BattleCardConfig);
         $randomCard['name'] = "Randomized Card";
@@ -64,25 +64,25 @@ for ($i=0; $i < $amountOfCards; $i++) {
             </div>
         </div>
         <?php if (isset($cards[$i]['description']) && $cards[$i]['description'] != "") { ?>
-            <div class="description">
+            <div class="description <?php getTextSizeClass($cards[$i])?>">
                 <span>"<?php echo $cards[$i]['description'] ?>"</span>
             </div>
         <?php } if (isset($cards[$i]['onReveal']) && $cards[$i]['onReveal'] != "") { ?>
-        <div class="ability">
+        <div class="ability <?php getTextSizeClass($cards[$i])?>">
             <span>
                 <img class="Icon" src="assets/icons/onreveal.png" alt="On Reveal Ability Icon">
                 <?php echo $cards[$i]['onReveal'] ?>
             </span>
         </div>
         <?php } if (isset($cards[$i]['onGoing']) && $cards[$i]['onGoing'] != "") { ?>
-        <div class="ability">
+        <div class="ability <?php getTextSizeClass($cards[$i])?>">
             <span>
                 <img class="Icon" src="assets/icons/ongoing.png" alt="Ongoing Ability Icon">
                 <?php echo $cards[$i]['onGoing'] ?>
             </span>
         </div>
         <?php } if (isset($cards[$i]['special']) && $cards[$i]['special'] != "") { ?>
-        <div class="ability">
+        <div class="ability <?php getTextSizeClass($cards[$i])?>">
             <span>
                 <img class="Icon" src="assets/icons/special.png" alt="Special Ability Icon">
                 <?php echo $cards[$i]['special'] ?>
@@ -102,5 +102,3 @@ for ($i=0; $i < $amountOfCards; $i++) {
 <?php
 }
 ?>
-
-
