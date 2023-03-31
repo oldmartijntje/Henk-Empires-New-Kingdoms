@@ -36,7 +36,7 @@ if (isset($_GET['type']) && $_GET['type'] == "random") {
 for ($i=0; $i < $amountOfCards; $i++) { 
     ?>
 
-<div class="card">
+<div class="card" onclick="console.log(<?php echo printCard($cards[$i]) ?>)">
     <div class="card-header">
         <div class="name"><?php echo $cards[$i]['name'] ?></div>
         <div class="id"><?php echo $cards[$i]['id'] ?></div>

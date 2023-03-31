@@ -67,4 +67,21 @@ function getTextSizeClass($card) {
     }
 }
 
+function printCard($dictionary) {
+    $aanhalingsTekens = stripslashes(trim(HTMLspecialchars('"')));
+    $textMessage = "'";
+    $textMessage .= '[';
+    foreach ($dictionary as $key => $value) {
+        if (is_string($value)) {
+            $textMessage .= $aanhalingsTekens . $key . $aanhalingsTekens . ' => ' . $aanhalingsTekens . $value . $aanhalingsTekens . ', ';
+        } else {
+            $textMessage .= $aanhalingsTekens . $key . $aanhalingsTekens . ' => ' . strval($value) . ', ';
+        }
+    }
+    $textMessage = substr($textMessage, 0, -2);
+    $textMessage .= "],\\n'";
+    
+    return $textMessage;
+}
+
 ?>
