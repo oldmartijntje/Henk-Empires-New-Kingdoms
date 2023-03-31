@@ -60,9 +60,9 @@ function getTextSizeClass($card) {
         echo "textSize5px";
     } else if (strlen($totalText) > 190) {
         echo "textSize6px";
-    } else if (strlen($totalText) > 170) {
+    } else if (strlen($totalText) > 175) {
         echo "textSize7px";
-    } else if (strlen($totalText) > 150) {
+    } else if (strlen($totalText) > 160) {
         echo "textSize8px";
     } else if (strlen($totalText) > 140) {
         echo "textSize9px";
