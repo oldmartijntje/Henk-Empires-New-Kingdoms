@@ -16,7 +16,12 @@ $definedBattleCards = [
     ["name" => "","power" => 5,"energy" => 3,"balance" => 3,"onReveal" => "","onGoing" => "Players can only play 1 card per turn","description" => "","special" => "","image" => "","type" => "Water","series" => ""],
     ["name" => "", "power" => "4", "energy" => "4", "balance" => "0", "onReveal" => "", "onGoing" => "", "special" => "", "description" => "", "type" => "Fire"],
     ["name" => "", "power" => "5", "energy" => "4", "balance" => "1", "onReveal" => "", "onGoing" => "", "special" => "", "description" => "", "type" => "Earth"],
-    ["name" => "", "power" => "6", "energy" => "4", "balance" => "3", "onReveal" => "", "onGoing" => "This card has 6 extra power if it's the only card you have played", "special" => "", "description" => "", "type" => "Wind"]
+    ["name" => "", "power" => "6", "energy" => "4", "balance" => "3", "onReveal" => "", "onGoing" => "This card has 6 extra power if it's the only card you have played", "special" => "", "description" => "", "type" => "Wind"],
+    ["name" => "", "power" => "5", "energy" => "5", "balance" => "0", "onReveal" => "", "onGoing" => "", "special" => "", "description" => "", "type" => "Water"],  
+    ["name" => "", "power" => "6", "energy" => "5", "balance" => "1", "onReveal" => "", "onGoing" => "", "special" => "", "description" => "", "type" => "Fire"],
+    ["name" => "", "power" => "7", "energy" => "5", "balance" => "3", "onReveal" => "", "onGoing" => "Disable all on reveal effects for everyone", "special" => "", "description" => "", "type" => "Earth", "series" => ""],
+    ["name" => "", "power" => "6", "energy" => "6", "balance" => "0", "onReveal" => "", "onGoing" => "", "special" => "", "description" => "", "type" => "Wind", "series" => ""],
+    ["name" => "", "power" => "7", "energy" => "6", "balance" => "1", "onReveal" => "", "onGoing" => "", "special" => "", "description" => "", "type" => "Water", "series" => ""],
 ];
 
 $emptyModel = [
@@ -81,6 +86,9 @@ function createCard($card, $index, $BattleCardConfig) {
     $card = calculateDeck($card, $index, $BattleCardConfig);
     $card = calculateId($card, $index + 1, $BattleCardConfig["id"]);
     $card = getImage($card, $index, $BattleCardConfig);
+    if (!isset($card["name"]) || $card["name"] == "") {
+        $card["name"] = $BattleCardConfig["defaultName"];
+    }
     return $card;
 }
 
@@ -92,7 +100,7 @@ for ($x = 0; $x < count($definedBattleCards); $x++) {
 
 foreach ($definedBattleCards as $card) {
     foreach($card as $key=>$value) {
-        if (in_array($key, $blacklistedKeys)) {
+        if (in_array((string)$key, $blacklistedKeys)) {
             continue;
         } else {
             if (in_array($value, $possibleOptions[$key])) {

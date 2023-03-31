@@ -6,7 +6,8 @@ $BattleCardConfig = [
     "DeckMaxBalanceLevel" => 2,
     "DeckMaxPowerLevel" => 5,
     "id" => "B%s",
-    "defaultImage" => "assets/images/404nf.png"
+    "defaultImage" => "assets/images/404nf.png",
+    "defaultName" => "Dead Link"
 ];
 
 $GenerationSettings = [
