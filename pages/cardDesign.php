@@ -12,7 +12,7 @@
 <div class="table">
 <?php
     $loadDict = array(
-        "battleCards" => "models/battleCard.php",);
+        "battleCards" => "models/battleCardModel.php",);
     
     if (isset($_GET['page'])) {
         if (array_key_exists($_GET['page'], $loadDict)) {

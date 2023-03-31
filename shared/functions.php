@@ -54,9 +54,15 @@ function generateRandom($options, $emptyModel, $selectionList = [], $amountOfSel
 
 function getTextSizeClass($card) {
     $totalText = $card['description'] . $card['onReveal'] . $card['onGoing'] . $card['special'];
-    if (strlen($totalText) > 200) {
-        echo "textSize7px";
+    if (strlen($totalText) > 220) {
+        echo "textSize4px";
+    } else if (strlen($totalText) > 205) {
+        echo "textSize5px";
+    } else if (strlen($totalText) > 190) {
+        echo "textSize6px";
     } else if (strlen($totalText) > 170) {
+        echo "textSize7px";
+    } else if (strlen($totalText) > 150) {
         echo "textSize8px";
     } else if (strlen($totalText) > 140) {
         echo "textSize9px";
@@ -80,7 +86,8 @@ function printCard($dictionary) {
     }
     $textMessage = substr($textMessage, 0, -2);
     $textMessage .= "],\\n'";
-    
+    $textMessage = str_replace("'", "", $textMessage);
+    $textMessage = "'" . $textMessage . "'";
     return $textMessage;
 }
 

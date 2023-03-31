@@ -31,6 +31,7 @@ $imagesDictionary = [
     "Henk" => "assets/icons/henk.png",
     "error" => "assets/images/error.png",
     "Green" => "assets/icons/green.png",
+    "mushroom" => "assets/icons/mushroom.png",
 ];
 
 ?>

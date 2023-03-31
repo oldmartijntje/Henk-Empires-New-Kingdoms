@@ -14,6 +14,9 @@ def convertToPHP(dictionaryArray):
 format = [
     "name", "power", "energy", "balance", "onReveal", "onGoing", "description", "special", "type", "series"
 ]
+defaultNone = [
+    "image"
+]
 items = []
 ii=0
 loop = True
@@ -26,6 +29,8 @@ while loop:
             loop = False
             print(format[i], end = ": ")
             items[ii][format[i]] =input()
+    for i in range(len(defaultNone)):
+        items[ii][defaultNone[i]] = ''
 
     ii+=1
 
