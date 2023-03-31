@@ -11,7 +11,8 @@ $BattleCardConfig = [
     "randomization" => [
         "chooseBetween" => ["onReveal", "onGoing", "special", ""],
         "amount" => 2
-    ]
+    ],
+    "defaultAmount" => 1,
 ];
 
 $GenerationSettings = [

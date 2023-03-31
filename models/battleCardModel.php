@@ -11,7 +11,7 @@ if ((isset($_GET['amount']) && (is_numeric($_GET['amount'])) || $_GET['amount'] 
     $amountOfCards = $GenerationSettings["randomCardsAmount"];;   
 }
 if ($amountOfCards == "all") {
-    $amountOfCards = count($definedBattleCards);
+    $amountOfCards = count(getCorrectNumber($definedBattleCards));
 }
 
 if (isset($_GET['type']) && $_GET['type'] == "random") {
@@ -29,9 +29,9 @@ if (isset($_GET['type']) && $_GET['type'] == "random") {
     }
 } else {
     if ($amountOfCards > count($definedBattleCards)) {
-        $amountOfCards = count($definedBattleCards);
+        $amountOfCards = count(getCorrectNumber($definedBattleCards));
     }
-    $cards = $definedBattleCards;
+    $cards = getCorrectNumber($definedBattleCards);
 }
 for ($i=0; $i < $amountOfCards; $i++) { 
     ?>

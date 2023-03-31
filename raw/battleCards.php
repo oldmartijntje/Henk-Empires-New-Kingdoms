@@ -3,10 +3,10 @@ require "shared/config.php";
 
 $definedBattleCards = [
     // B001- B010
-    ["name" => "","power" => 0,"energy" => 0,"balance" => 1,"onReveal" => "","onGoing" => "This card has as much power as unspent energy","description" => "","special" => "","image" => "","type" => "Fire","series" => ""],
+    ["name" => "Sprinter","power" => 0,"energy" => 0,"balance" => 1,"onReveal" => "","onGoing" => "This card has as much power as unspent energy","description" => "Gotta go fast","special" => "","image" => "","type" => "Fire","series" => ""],
     ["name" => "Henk the Stone","power" => 1,"energy" => 0,"balance" => 1,"onReveal" => "","onGoing" => "","description" => "You are my rock","special" => "","image" => "assets/images/B002.png","type" => "Earth","series" => "Henk"],
     ["name" => "GLaDOS","power" => 2,"energy" => 0,"balance" => 3,"onReveal" => "Afflict all other cards with -1 power","onGoing" => "","description" => "Neurotoxins go brrrr","special" => "","image" => "assets/images/B003.png","type" => "Electric","series" => ""],
-    ["name" => "","power" => 1,"energy" => 1,"balance" => 0,"onReveal" => "","onGoing" => "","description" => "","special" => "","image" => "","type" => "Water","series" => ""],
+    ["name" => "Easter Chicks","power" => 1,"energy" => 1,"balance" => 0,"onReveal" => "","onGoing" => "","description" => "","special" => "","image" => "","type" => "Water","series" => ""],
     ["name" => "","power" => 2,"energy" => 1,"balance" => 1,"onReveal" => "","onGoing" => "","description" => "","special" => "","image" => "","type" => "Fire","series" => ""],
     ["name" => "","power" => 3,"energy" => 1,"balance" => 4,"onReveal" => "pick someones card (blindly) they have to play it (if they have 3 energy left), the cost of that card is now 3","onGoing" => "","description" => "","special" => "","image" => "","type" => "Earth","series" => ""],
     ["name" => "","power" => 2,"energy" => 2,"balance" => 0,"onReveal" => "","onGoing" => "","description" => "","special" => "","image" => "","type" => "Wind","series" => ""],
@@ -23,7 +23,7 @@ $definedBattleCards = [
     ["name" => "", "power" => "6", "energy" => "5", "balance" => "1", "onReveal" => "", "onGoing" => "", "special" => "", "description" => "", "type" => "Fire"],
     ["name" => "", "power" => "7", "energy" => "5", "balance" => "3", "onReveal" => "", "onGoing" => "Disable all on reveal effects for everyone", "special" => "", "description" => "", "type" => "Earth", "series" => ""],
     ["name" => "", "power" => "6", "energy" => "6", "balance" => "0", "onReveal" => "", "onGoing" => "", "special" => "", "description" => "", "type" => "Wind", "series" => ""],
-    ["name" => "", "power" => "7", "energy" => "6", "balance" => "1", "onReveal" => "", "onGoing" => "", "special" => "", "description" => "", "type" => "Water", "series" => ""],
+    ["name" => "Easter Chick Army", "power" => "7", "energy" => "6", "balance" => "1", "onReveal" => "", "onGoing" => "", "special" => "", "description" => "", "type" => "Water", "series" => ""],
     // B021 - B030
     ["name" => "", "power" => "8", "energy" => "6", "balance" => "2", "onReveal" => "Remove all ongoing effects from all cards in everyone's hands", "onGoing" => "", "special" => "", "description" => "", "type" => "Fire", "series" => ""],
     ["name" => "", "power" => "7", "energy" => "7", "balance" => "0", "onReveal" => "", "onGoing" => "", "special" => "", "description" => "", "type" => "Earth", "series" => ""],
@@ -76,7 +76,7 @@ $emptyModel = [
     "series" => ""
 ];
 
-$blacklistedKeys = ["id", "shopCost", "deck", "image", "name","description"];
+$blacklistedKeys = ["id", "shopCost", "deck", "image", "name","description", "amount"];
 
 $possibleOptions = [
     "power" => [],
@@ -126,6 +126,9 @@ function createCard($card, $index, $BattleCardConfig) {
     $card = calculateCost($card, $index, $BattleCardConfig);
     $card = calculateDeck($card, $index, $BattleCardConfig);
     $card = calculateId($card, $index + 1, $BattleCardConfig["id"]);
+    if (!isset($card["amount"]) || $card["amount"] == "") {
+        $card["amount"] = $BattleCardConfig["defaultAmount"];
+    }
     if (!isset($card["name"]) || $card["name"] == "") {
         $card["name"] = $BattleCardConfig["defaultName"];
     }
@@ -134,6 +137,16 @@ function createCard($card, $index, $BattleCardConfig) {
     }
     $card = getImage($card, $index, $BattleCardConfig);
     return $card;
+}
+
+function getCorrectNumber($cards) {
+    $correctList = [];
+    foreach($cards as $singleCard) {
+        for ($i=0; $i < (int)$singleCard["amount"]; $i++) { 
+            array_push($correctList, $singleCard);
+        }
+    }
+    return $correctList;
 }
 
 require "shared/functions.php";
