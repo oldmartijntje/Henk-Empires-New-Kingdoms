@@ -12,7 +12,7 @@ def convertToPHP(dictionaryArray):
     return textMessage
 
 format = [
-    "name", "power", "energy", "balance", "onReveal", "onGoing", "special", "description", "type", "series"
+    "name", "power", "energy", "balance", "onReveal", "onGoing", "description", "special", "type", "series"
 ]
 items = []
 ii=0

@@ -45,11 +45,11 @@ for ($i=0; $i < $amountOfCards; $i++) {
         <img src="<?php echo $cards[$i]['image'] ?>" alt="<?php echo $cards[$i]['name'] ?>">
         <?php if (isset($cards[$i]['series']) && $cards[$i]['series'] != "") { ?>
         <div class="series-icon">
-            <img src="<?php echo getCorrectImage($cards[$i]['series']) ?>" alt="Henk Series Icon">
+            <img src="<?php echo getCorrectImage($cards[$i]['series']) ?>" alt="<?php echo $cards[$i]['series'] ?> Series Icon" title="<?php echo $cards[$i]['series'] ?>">
         </div>
         <?php } ?>
         <div class="type-icon">
-            <img src="<?php echo getCorrectImage($cards[$i]['type']) ?>" alt="<?php echo $cards[$i]['type'] ?> Type Icon">
+            <img src="<?php echo getCorrectImage($cards[$i]['type']) ?>" alt="<?php echo $cards[$i]['type'] ?> Type Icon" title="<?php echo $cards[$i]['type'] ?>">
         </div>
     </div>
     <div class="card-info">
