@@ -64,25 +64,25 @@ for ($i=0; $i < $amountOfCards; $i++) {
             </div>
         </div>
         <?php if (isset($cards[$i]['description']) && $cards[$i]['description'] != "") { ?>
-            <div class="description <?php getTextSizeClass($cards[$i])?>">
+            <div title="Description" class="description <?php getTextSizeClass($cards[$i])?>">
                 <span>"<?php echo $cards[$i]['description'] ?>"</span>
             </div>
         <?php } if (isset($cards[$i]['onReveal']) && $cards[$i]['onReveal'] != "") { ?>
-        <div class="ability <?php getTextSizeClass($cards[$i])?>">
+        <div title="On Reveal abillity" class="ability <?php getTextSizeClass($cards[$i])?>">
             <span>
                 <img class="Icon" src="assets/icons/onreveal.png" alt="On Reveal Ability Icon">
                 <?php echo $cards[$i]['onReveal'] ?>
             </span>
         </div>
         <?php } if (isset($cards[$i]['onGoing']) && $cards[$i]['onGoing'] != "") { ?>
-        <div class="ability <?php getTextSizeClass($cards[$i])?>">
+        <div title="Ongoing abillity" class="ability <?php getTextSizeClass($cards[$i])?>">
             <span>
                 <img class="Icon" src="assets/icons/ongoing.png" alt="Ongoing Ability Icon">
                 <?php echo $cards[$i]['onGoing'] ?>
             </span>
         </div>
         <?php } if (isset($cards[$i]['special']) && $cards[$i]['special'] != "") { ?>
-        <div class="ability <?php getTextSizeClass($cards[$i])?>">
+        <div title="Special abillity" class="ability <?php getTextSizeClass($cards[$i])?>">
             <span>
                 <img class="Icon" src="assets/icons/special.png" alt="Special Ability Icon">
                 <?php echo $cards[$i]['special'] ?>
