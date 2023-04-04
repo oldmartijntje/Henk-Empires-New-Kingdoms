@@ -212,3 +212,8 @@
 .textSize4px span {
     font-size: 4px;
 }
+
+.card-footer.supportDeckFooterColor {
+    background-color: rgb(238, 133, 133);
+    color: rgb(109, 0, 0);
+}

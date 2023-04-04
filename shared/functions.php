@@ -56,15 +56,15 @@ function getTextSizeClass($card) {
     $totalText = $card['description'] . $card['onReveal'] . $card['onGoing'] . $card['special'];
     if (strlen($totalText) > 220) {
         echo "textSize4px";
-    } else if (strlen($totalText) > 205) {
+    } else if (strlen($totalText) > 240) {
         echo "textSize5px";
-    } else if (strlen($totalText) > 190) {
+    } else if (strlen($totalText) > 225) {
         echo "textSize6px";
-    } else if (strlen($totalText) > 175) {
+    } else if (strlen($totalText) > 205) {
         echo "textSize7px";
-    } else if (strlen($totalText) > 160) {
+    } else if (strlen($totalText) > 190) {
         echo "textSize8px";
-    } else if (strlen($totalText) > 140) {
+    } else if (strlen($totalText) > 170) {
         echo "textSize9px";
     } else if (strlen($totalText) > 110) {
         echo "textSize10px";

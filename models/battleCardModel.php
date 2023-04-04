@@ -90,7 +90,7 @@ for ($i=0; $i < $amountOfCards; $i++) {
         </div>
         <?php } ?>
     </div>
-    <div class="card-footer">
+    <div class="card-footer <?php if ($cards[$i]['deck']=='S') {echo 'supportDeckFooterColor';}?>">
         <div class="deck">Deck <?php echo $cards[$i]['deck'] ?></div>
         <div class="shop-cost">Shop Cost: <?php echo $cards[$i]['shopCost'] ?></div>
     </div>
