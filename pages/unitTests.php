@@ -47,15 +47,24 @@
         }
 
         echo "<h1>Testing getCorrectImage</h1>";
+        $imagesDictionary = [
+            "test1" => "test1.png",
+            "test2" => "test2.png",
+            "404" => "404nf.png",
+            "test3" => "test3.png",
+            "test4" => "test4.png",
+            "test5" => "test5.png",
+            "404nf" => "owo",
+        ];
         // Test cases for getCorrectImage
         $testCasesGetCorrectImage = [
-            ["imageTag" => "Electric", "expected" => "assets/icons/electric.png"],
-            ["imageTag" => "Fire", "expected" => "assets/icons/fire.png"],
-            ["imageTag" => "Power", "expected" => "assets/icons/power.png"],
-            ["imageTag" => "404nf", "expected" => "assets/icons/404nf.png"],
-            ["imageTag" => "error", "expected" => "assets/images/error.png"],
-            ["imageTag" => "fdsgsfgfsg", "expected" => "assets/icons/404nf.png"],
-            ["imageTag" => 1, "expected" => "assets/icons/404nf.png"],
+            ["imageTag" => "test1", "expected" => "test1.png"],
+            ["imageTag" => "test2", "expected" => "test2.png"],
+            ["imageTag" => "test3", "expected" => "test3.png"],
+            ["imageTag" => "404", "expected" => "404nf.png"],
+            ["imageTag" => "test4", "expected" => "test4.png"],
+            ["imageTag" => "fdsgsfgfsg", "expected" => "owo"],
+            ["imageTag" => 1, "expected" => "owo"],
         ];
 
         // Run tests for getCorrectImage
@@ -263,6 +272,168 @@
             $expectedOutput = $test["expectedOutput"];
             $output = printCard($input);
             $tests = testFunction($output, $expectedOutput, $tests);
+        }
+
+        echo "<h1>Testing returnTextWithImages</h1>";
+        $imagesDictionary = [
+            "test1" => "test1.png",
+            "test2" => "test2.png",
+            "404" => "404nf.png",
+            "test3" => "test3.png",
+            "test4" => "test4.png",
+            "test5" => "test5.png",
+            "404nf" => "owoThisIsNotFound.exe",
+        ];
+        // Define test cases
+        $testCasereturnTextWithImages = [
+            [
+                "input" => [
+                    "text" => "This is just text.",
+                    "classes" => "",
+                    "splitCharacter" => "|",
+                    "ifNotSayError" => false,
+                    "returnOnlyImages" => false,
+                ],
+                "expectedOutput" => "This is just text.",
+            ],
+            [
+                "input" => [
+                    "text" => "This text contains |test1|. This is another sentence.",
+                    "classes" => "",
+                    "splitCharacter" => "|",
+                    "ifNotSayError" => false,
+                    "returnOnlyImages" => false,
+                ],
+                "expectedOutput" => "This text contains <img title=\"test1\" class=\"\" src=\"test1.png\">. This is another sentence.",
+            ],
+            [
+                "input" => [
+                    "text" => "|test1| This text contains |test2| and |test3|. |test4|",
+                    "classes" => "",
+                    "splitCharacter" => "|",
+                    "ifNotSayError" => false,
+                    "returnOnlyImages" => false,
+                ],
+                "expectedOutput" => "<img title=\"test1\" class=\"\" src=\"test1.png\"> This text contains <img title=\"test2\" class=\"\" src=\"test2.png\"> and <img title=\"test3\" class=\"\" src=\"test3.png\">. <img title=\"test4\" class=\"\" src=\"test4.png\">",
+            ],
+            [
+                "input" => [
+                    "text" => "|test5| |unknown|",
+                    "classes" => "",
+                    "splitCharacter" => "|",
+                    "ifNotSayError" => false,
+                    "returnOnlyImages" => false,
+                ],
+                "expectedOutput" => "<img title=\"test5\" class=\"\" src=\"test5.png\"> |unknown|",
+            ],
+            [
+                "input" => [
+                    "text" => "|test5| |unknown|",
+                    "classes" => "",
+                    "splitCharacter" => "",
+                    "ifNotSayError" => false,
+                    "returnOnlyImages" => false,
+                ],
+                "expectedOutput" => "|<img title=\"test5\" class=\"\" src=\"test5.png\">| |unknown|",
+            ],
+            [
+                "input" => [
+                    "text" => "|test5| |unknown|",
+                    "classes" => "",
+                    "splitCharacter" => "|",
+                    "ifNotSayError" => true,
+                    "returnOnlyImages" => false,
+                ],
+                "expectedOutput" => "<img title=\"test5\" class=\"\" src=\"test5.png\"> |unknown|",
+            ],
+            [
+                "input" => [
+                    "text" => "|test5| |unknown|",
+                    "classes" => "",
+                    "splitCharacter" => "",
+                    "ifNotSayError" => true,
+                    "returnOnlyImages" => false,
+                ],
+                "expectedOutput" => "|<img title=\"test5\" class=\"\" src=\"test5.png\">| |unknown|",
+            ],
+            [
+                "input" => [
+                    "text" => "|test5| |unknown|",
+                    "classes" => "",
+                    "splitCharacter" => "",
+                    "ifNotSayError" => false,
+                    "returnOnlyImages" => true,
+                ],
+                "expectedOutput" => "<img title=\"test5\" class=\"\" src=\"test5.png\">",
+            ],
+            [
+                "input" => [
+                    "text" => "|banaan| |unknown|",
+                    "classes" => "",
+                    "splitCharacter" => "|",
+                    "ifNotSayError" => true,
+                    "returnOnlyImages" => false,
+                ],
+                "expectedOutput" => "<img title=\"|banaan| |unknown|\" class=\"\" src=\"owoThisIsNotFound.exe\">",
+            ],
+            [
+                "input" => [
+                    "text" => "|test5| |unknown|",
+                    "classes" => "henk",
+                    "splitCharacter" => "|",
+                    "ifNotSayError" => false,
+                    "returnOnlyImages" => false,
+                ],
+                "expectedOutput" => "<img title=\"test5\" class=\"henk\" src=\"test5.png\"> |unknown|",
+            ],
+        ];
+    
+        foreach ($testCasereturnTextWithImages as $test) {
+            $result = returnTextWithImages($test["input"]['text'], $test["input"]['classes'], $test["input"]['splitCharacter'], $test["input"]['ifNotSayError'], $test["input"]['returnOnlyImages']);
+            $tests = testFunction($result, $test["expectedOutput"], $tests);
+        }
+
+        echo "<h1>Testing returnTextWithoutImagesTags</h1>";
+        $imagesDictionary = [
+            "test1" => "test1.png",
+            "test2" => "test2.png",
+            "404" => "404nf.png",
+            "test3" => "test3.png",
+            "test4" => "test4.png",
+            "test5" => "test5.png",
+            "404nf" => "owoThisIsNotFound.exe",
+        ];
+        // Define test cases
+        $testCasereturnTextWithImages = [
+            [
+                "input" => "This is just text.",
+                "expectedOutput" => "This is just text.",
+            ],
+            [
+                "input" => "This text contains |test1|. This is another sentence.",
+                "expectedOutput" => "This text contains   . This is another sentence.",
+            ],
+            [
+                "input" => "|test1| This text contains |test2| and |test3|. |test4|",
+                "expectedOutput" => "   This text contains    and   .   ",
+            ],
+            [
+                "input" => "|test5| |unknown|",
+                "expectedOutput" => "   |unknown|",
+            ],
+            [
+                "input" => "|test5||test5| |unknown||test5|",
+                "expectedOutput" => "     |unknown|  ",
+            ],
+            [
+                "input" => "|test5||test5||test5| |unknown||test5| |test5|.nl",
+                "expectedOutput" => "       |unknown|     .nl",
+            ],
+        ];
+
+        foreach ($testCasereturnTextWithImages as $test) {
+            $result = returnTextWithoutImagesTags($test["input"]);
+            $tests = testFunction($result, $test["expectedOutput"], $tests);
         }
 
 
