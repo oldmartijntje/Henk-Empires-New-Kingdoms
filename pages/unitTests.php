@@ -235,7 +235,35 @@
         }
 
         echo "<h1>Testing printCard</h1>";
-        
+        // Define test cases
+        $testCasesprintCard = [    
+            [        
+                "input" => [            
+                    "card" => ["id" => "B001", "title" => "Title 1", "description" => "Description 1", "image" => "Image 1"],
+                ],
+                "expectedOutput" => trim(HTMLspecialchars('\'["id" => "B001", "title" => "Title 1", "description" => "Description 1", "image" => "Image 1"],\\n\'')),
+            ],
+            [        
+                "input" => [            
+                    "card" => ["id" => "B002", "title" => "Title 2", "description" => "", "image" => ""],
+                ],
+                "expectedOutput" => trim(HTMLspecialchars('\'["id" => "B002", "title" => "Title 2", "description" => "", "image" => ""],\\n\'')),
+            ],
+            [        
+                "input" => [            
+                    "card" => ["id" => "B003", "title" => "Title 3", "description" => null, "image" => null],
+                ],
+                "expectedOutput" => trim(HTMLspecialchars('\'["id" => "B003", "title" => "Title 3", "description" => "", "image" => ""],\\n\'')),
+            ],
+        ];
+
+        // Run tests
+        foreach ($testCasesprintCard as $i => $test) {
+            $input = $test["input"]["card"];
+            $expectedOutput = $test["expectedOutput"];
+            $output = printCard($input);
+            $tests = testFunction($output, $expectedOutput, $tests);
+        }
 
 
         // Print test results

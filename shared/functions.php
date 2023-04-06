@@ -19,7 +19,15 @@ function testFunction($function, $expectedOutcome, $testArray) {
         } else {
             echo "<p>Expected: " . gettype($expectedOutcome) . ": $expectedOutcome</p>";
         }
+        if (gettype($function) === "array" && gettype($expectedOutcome) === "array") {
+            echo "<p>Diff: " . gettype($function) . ": " . "</p>";
+            logArray(array_diff($function, $expectedOutcome));
+        } else if (gettype($function) === "string" && gettype($expectedOutcome) === "string") {
+            echo "<p>This is wrong in the result: " . "</p>";
+            logArray(array_diff(str_split($function), str_split($expectedOutcome)));
+        }
         $testArray["failed"]++;
+
     }
     $testArray["amountFinished"]++;
     return $testArray;
@@ -105,13 +113,17 @@ function getTextSizeClass($card, $trueIfReturnFalseIfEcho = false) {
 
 function printCard($dictionary) {
     $aanhalingsTekens = stripslashes(trim(HTMLspecialchars('"')));
+    $arrowBracket = stripslashes(trim(HTMLspecialchars('>')));
     $textMessage = "'";
     $textMessage .= '[';
     foreach ($dictionary as $key => $value) {
+        if ($value == null) {
+            $value = "";
+        }
         if (is_string($value)) {
-            $textMessage .= $aanhalingsTekens . $key . $aanhalingsTekens . ' => ' . $aanhalingsTekens . $value . $aanhalingsTekens . ', ';
+            $textMessage .= $aanhalingsTekens . $key . $aanhalingsTekens . ' =' . $arrowBracket . ' ' . $aanhalingsTekens . $value . $aanhalingsTekens . ', ';
         } else {
-            $textMessage .= $aanhalingsTekens . $key . $aanhalingsTekens . ' => ' . strval($value) . ', ';
+            $textMessage .= $aanhalingsTekens . $key . $aanhalingsTekens . ' =' . $arrowBracket . ' ' . strval($value) . ', ';
         }
     }
     $textMessage = substr($textMessage, 0, -2);
