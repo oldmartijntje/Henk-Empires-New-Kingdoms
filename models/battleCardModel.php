@@ -70,14 +70,14 @@ for ($i=0; $i < $amountOfCards; $i++) {
         <?php } if (isset($cards[$i]['onReveal']) && $cards[$i]['onReveal'] != "") { ?>
         <div title="On Reveal abillity" class="ability <?php getTextSizeClass($cards[$i])?>">
             <span class="flexSpan">
-                <?php echo returnTextWithImages("|special|", "displayBlock Icon") ?>
+                <?php echo returnTextWithImages("|onReveal|", "displayBlock Icon") ?>
                 <span><?php echo returnTextWithImages($cards[$i]['onReveal'], "inTextImages") ?></span>
             </span>
         </div>
         <?php } if (isset($cards[$i]['onGoing']) && $cards[$i]['onGoing'] != "") { ?>
         <div title="Ongoing abillity" class="ability <?php getTextSizeClass($cards[$i])?>">
             <span class="flexSpan">
-                <?php echo returnTextWithImages("|special|", "displayBlock Icon") ?>
+                <?php echo returnTextWithImages("|onGoing|", "displayBlock Icon") ?>
                 <span><?php echo returnTextWithImages($cards[$i]['onGoing'], "inTextImages") ?></span>
             </span>
         </div>
