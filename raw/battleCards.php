@@ -1,5 +1,6 @@
 <?php 
 require "shared/config.php";
+require "shared/functions.php";
 
 $definedBattleCards = [
     // B001- B010
@@ -197,7 +198,7 @@ function getCorrectNumber($cards) {
     return $correctList;
 }
 
-require "shared/functions.php";
+
 
 for ($x = 0; $x < count($definedBattleCards); $x++) {
     $definedBattleCards[$x] = createCard($definedBattleCards[$x], $x, $BattleCardConfig);

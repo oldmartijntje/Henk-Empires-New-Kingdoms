@@ -1,6 +1,30 @@
 <?php
 require "shared/config.php";
 
+function testFunction($function, $expectedOutcome, $testArray) {
+    $testArray["amountStarted"]++;
+    if ($function === $expectedOutcome) {
+        $testArray["correct"]++;
+    } else {
+        echo "<h2>Test failed: " . $testArray["amountStarted"] . "</h2>";
+        if (gettype($function) === "array") {
+            echo "<p>Gotten: " . gettype($function) . ": " . "</p>";
+            logArray($function);
+        } else {
+            echo "<p>Gotten: " . gettype($function) . ": $function</p>";
+        }
+        if (gettype($expectedOutcome) === "array") {
+            echo "<p>Expected: " . gettype($expectedOutcome) . ": " . "</p>";
+            logArray($expectedOutcome);
+        } else {
+            echo "<p>Expected: " . gettype($expectedOutcome) . ": $expectedOutcome</p>";
+        }
+        $testArray["failed"]++;
+    }
+    $testArray["amountFinished"]++;
+    return $testArray;
+}
+
 function numberToString($num, $length = 3) {
     return str_pad((string)$num, $length, '0', STR_PAD_LEFT);
 }
@@ -29,7 +53,7 @@ function returnItems($selectionList = [], $amountOfSelectionList = 0) {
     $chosen = [];
     for ($i=0; $i < $amountOfSelectionList; $i++) { 
         $tempOption = rand(0, count($selectionList)-1);
-        if ($selectionList[$tempOption] != '') {
+        if (count($selectionList) > 0 && $selectionList[$tempOption] != '') {
             array_push($chosen, $selectionList[$tempOption]);
         }
         array_splice($selectionList, $tempOption, 1);
@@ -52,24 +76,30 @@ function generateRandom($options, $emptyModel, $selectionList = [], $amountOfSel
     return $random;
 }
 
-function getTextSizeClass($card) {
+function getTextSizeClass($card, $trueIfReturnFalseIfEcho = false) {
     $totalText = returnTextWithoutImagesTags($card['description'] . $card['onReveal'] . $card['onGoing'] . $card['special']);
+    $value = "";
     if (strlen($totalText) > 220) {
-        echo "textSize4px";
+        $value = "textSize4px";
     } else if (strlen($totalText) > 240) {
-        echo "textSize5px";
+        $value = "textSize5px";
     } else if (strlen($totalText) > 225) {
-        echo "textSize6px";
+        $value = "textSize6px";
     } else if (strlen($totalText) > 205) {
-        echo "textSize7px";
+        $value = "textSize7px";
     } else if (strlen($totalText) > 190) {
-        echo "textSize8px";
+        $value = "textSize8px";
     } else if (strlen($totalText) > 170) {
-        echo "textSize9px";
+        $value = "textSize9px";
     } else if (strlen($totalText) > 110) {
-        echo "textSize10px";
+        $value = "textSize10px";
     } else if (strlen($totalText) > 80) {
-        echo "textSize11px";
+        $value = "textSize11px";
+    }
+    if ($trueIfReturnFalseIfEcho) {
+        return $value;
+    } else {
+        echo $value;
     }
 }
 
@@ -94,25 +124,17 @@ function printCard($dictionary) {
 function returnTextWithImages($textToScan, $classesToEquipImagesWith = "", $splitCharacter = "|", $ifNotSayError = false, $returnOnlyImages = false) {
     global $imagesDictionary;
     $amount = 0;
-    $images = '';
     foreach ($imagesDictionary as $key => $value) {
         $findThisKey = $splitCharacter . $key . $splitCharacter;
         if(strpos($textToScan, $findThisKey) !== false){
             $amount++;
-            $images .= "<img title=\"$key\" class=\"$classesToEquipImagesWith\" src=\"$value\">";
-            $textToScan = str_replace("$findThisKey", "", $textToScan);
-        } else {
-            $textToScan = str_replace("$findThisKey", "<span class=\"image-not-found\">$findThisKey</span>", $textToScan);
         }
+        $textToScan = str_replace("$findThisKey", "<img title=\"$key\" class=\"$classesToEquipImagesWith\" src=\"$value\">", $textToScan);
     }
     if ($amount == 0 && $ifNotSayError) {
-        $images = "<img title=\"$textToScan\" class=\"$classesToEquipImagesWith\" src=\"" . getCorrectImage("404nf") . "\">";
-        $textToScan = "";
+        $textToScan = "<img title=\"$textToScan\" class=\"$classesToEquipImagesWith\" src=\"" . getCorrectImage("404nf") . "\">";
     }
-    if ($returnOnlyImages) {
-        return $images;
-    }
-    return $images . $textToScan;
+    return $textToScan;
 }
 
 function returnTextWithoutImagesTags($textToScan) {

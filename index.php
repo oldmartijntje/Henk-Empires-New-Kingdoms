@@ -10,6 +10,7 @@
     <?php $redirectDict = array(
         'home' => 'pages/home.php',
         "battleCards" => "pages/cardDesign.php",
+        "unitTests" => "pages/unitTests.php",
     );
     ?>
 
