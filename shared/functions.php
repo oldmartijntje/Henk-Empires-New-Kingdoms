@@ -91,10 +91,18 @@ function printCard($dictionary) {
     return $textMessage;
 }
 
-function returnTextWithImages($textToScan, $classesToEquipImagesWith = "") {
+function returnTextWithImages($textToScan, $classesToEquipImagesWith = "", $splitCharacter = "|", $ifNotSayError = false) {
     global $imagesDictionary;
+    $amount = 0;
     foreach ($imagesDictionary as $key => $value) {
-        $textToScan = str_replace("|$key|", "<img title=\"$key\" class=\"$classesToEquipImagesWith\" src=\"$value\">", $textToScan);
+        $findThisKey = $splitCharacter . $key . $splitCharacter;
+        if(strpos($textToScan, $findThisKey) !== false){
+            $amount++;
+        }
+        $textToScan = str_replace("$findThisKey", "<img title=\"$key\" class=\"$classesToEquipImagesWith\" src=\"$value\">", $textToScan);
+    }
+    if ($amount == 0 && $ifNotSayError) {
+        $textToScan = "<img title=\"$textToScan\" class=\"$classesToEquipImagesWith\" src=\"" . getCorrectImage("404nf") . "\">";
     }
     return $textToScan;
 }
