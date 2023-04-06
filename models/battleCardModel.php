@@ -65,27 +65,27 @@ for ($i=0; $i < $amountOfCards; $i++) {
         </div>
         <?php if (isset($cards[$i]['description']) && $cards[$i]['description'] != "") { ?>
             <div title="Description" class="description <?php getTextSizeClass($cards[$i])?>">
-                <span>"<?php echo $cards[$i]['description'] ?>"</span>
+                <span class="flexSpan">"<?php echo returnTextWithImages($cards[$i]['description'], "inTextImages") ?>"</span>
             </div>
         <?php } if (isset($cards[$i]['onReveal']) && $cards[$i]['onReveal'] != "") { ?>
         <div title="On Reveal abillity" class="ability <?php getTextSizeClass($cards[$i])?>">
-            <span>
-                <img class="Icon" src="assets/icons/onreveal.png" alt="On Reveal Ability Icon">
-                <?php echo $cards[$i]['onReveal'] ?>
+            <span class="flexSpan">
+                <?php echo returnTextWithImages("|special|", "displayBlock Icon") ?>
+                <span><?php echo returnTextWithImages($cards[$i]['onReveal'], "inTextImages") ?></span>
             </span>
         </div>
         <?php } if (isset($cards[$i]['onGoing']) && $cards[$i]['onGoing'] != "") { ?>
         <div title="Ongoing abillity" class="ability <?php getTextSizeClass($cards[$i])?>">
-            <span>
-                <img class="Icon" src="assets/icons/ongoing.png" alt="Ongoing Ability Icon">
-                <?php echo $cards[$i]['onGoing'] ?>
+            <span class="flexSpan">
+                <?php echo returnTextWithImages("|special|", "displayBlock Icon") ?>
+                <span><?php echo returnTextWithImages($cards[$i]['onGoing'], "inTextImages") ?></span>
             </span>
         </div>
         <?php } if (isset($cards[$i]['special']) && $cards[$i]['special'] != "") { ?>
         <div title="Special abillity" class="ability <?php getTextSizeClass($cards[$i])?>">
-            <span>
-                <img class="Icon" src="assets/icons/special.png" alt="Special Ability Icon">
-                <?php echo $cards[$i]['special'] ?>
+            <span class="flexSpan">
+                <?php echo returnTextWithImages("|special|", "displayBlock Icon") ?>
+                <span><?php echo returnTextWithImages($cards[$i]['special'], "inTextImages") ?></span>
             </span>
         </div>
         <?php } ?>

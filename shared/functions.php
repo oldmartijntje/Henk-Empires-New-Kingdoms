@@ -53,7 +53,7 @@ function generateRandom($options, $emptyModel, $selectionList = [], $amountOfSel
 }
 
 function getTextSizeClass($card) {
-    $totalText = $card['description'] . $card['onReveal'] . $card['onGoing'] . $card['special'];
+    $totalText = returnTextWithoutImagesTags($card['description'] . $card['onReveal'] . $card['onGoing'] . $card['special']);
     if (strlen($totalText) > 220) {
         echo "textSize4px";
     } else if (strlen($totalText) > 240) {
@@ -89,6 +89,22 @@ function printCard($dictionary) {
     $textMessage = str_replace("'", "", $textMessage);
     $textMessage = "'" . $textMessage . "'";
     return $textMessage;
+}
+
+function returnTextWithImages($textToScan, $classesToEquipImagesWith = "") {
+    global $imagesDictionary;
+    foreach ($imagesDictionary as $key => $value) {
+        $textToScan = str_replace("|$key|", "<img title=\"$key\" class=\"$classesToEquipImagesWith\" src=\"$value\">", $textToScan);
+    }
+    return $textToScan;
+}
+
+function returnTextWithoutImagesTags($textToScan) {
+    global $imagesDictionary;
+    foreach ($imagesDictionary as $key => $value) {
+        $textToScan = str_replace("|$key|", "   ", $textToScan);
+    }
+    return $textToScan;
 }
 
 ?>
