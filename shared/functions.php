@@ -9,20 +9,22 @@ function testFunction($function, $expectedOutcome, $testArray) {
         echo "<h2>Test failed: " . $testArray["amountStarted"] . "</h2>";
         if (gettype($function) === "array") {
             echo "<p>Gotten: " . gettype($function) . ": " . "</p>";
-            logArray($function);
+            print_r($function);
         } else {
             echo "<p>Gotten: " . gettype($function) . ": $function</p>";
+            echo "<p>Gotten w HTMLspecialchars(): " . HTMLspecialchars($function) . "</p>";
         }
         if (gettype($expectedOutcome) === "array") {
             echo "<p>Expected: " . gettype($expectedOutcome) . ": " . "</p>";
-            logArray($expectedOutcome);
+            print_r($expectedOutcome);
         } else {
             echo "<p>Expected: " . gettype($expectedOutcome) . ": $expectedOutcome</p>";
+            echo "<p>Expected w HTMLspecialchars(): " . HTMLspecialchars($expectedOutcome) . "</p>";
         }
         if (gettype($function) === "array" && gettype($expectedOutcome) === "array") {
             echo "<p>Diff: " . gettype($function) . ": " . "</p>";
             logArray(array_diff($function, $expectedOutcome));
-        } else if (gettype($function) === "string" && gettype($expectedOutcome) === "string") {
+        } else if (gettype($function) === "string" && gettype($expectedOutcome) === "string" && false) {
             echo "<p>This is wrong in the result: " . "</p>";
             logArray(array_diff(str_split($function), str_split($expectedOutcome)));
         }
@@ -135,6 +137,9 @@ function printCard($dictionary) {
 
 function returnTextWithImages($textToScan, $classesToEquipImagesWith = "", $splitCharacter = "|", $ifNotSayError = false, $returnOnlyImages = false) {
     global $imagesDictionary;
+    if ($returnOnlyImages) {
+        $textToScan = returnDetectedImages($textToScan, $splitCharacter);
+    }
     $amount = 0;
     foreach ($imagesDictionary as $key => $value) {
         $findThisKey = $splitCharacter . $key . $splitCharacter;
@@ -155,6 +160,25 @@ function returnTextWithoutImagesTags($textToScan) {
         $textToScan = str_replace("|$key|", "  ", $textToScan);
     }
     return $textToScan;
+}
+
+function returnDetectedImages($text, $splitCharacter = "|") {
+    global $imagesDictionary;
+    if ($splitCharacter == "") {
+        return "";
+    }
+    $splittedText = explode($splitCharacter, $text);
+    $arrayToKeep = [];
+    for ($i=0; $i < (count($splittedText) -1) / 2; $i++) { 
+        array_push($arrayToKeep, $splittedText[$i * 2 + 1]);
+    }
+    $returnString = "";
+    foreach ($arrayToKeep as $value) {
+        if (array_key_exists($value, $imagesDictionary)) {
+            $returnString .= $splitCharacter . $value . $splitCharacter;
+        }
+    }
+    return $returnString;
 }
 
 ?>
