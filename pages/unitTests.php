@@ -436,6 +436,26 @@
                 ],
                 "expectedOutput" => "<img title=\"test5\" class=\"henk\" src=\"test5.png\"> |unknown|",
             ],
+            [
+                "input" => [
+                    "text" => "test5 test4 daf",
+                    "classes" => "henk",
+                    "splitCharacter" => "",
+                    "ifNotSayError" => true,
+                    "returnOnlyImages" => true,
+                ],
+                "expectedOutput" => "<img title=\"test5\" class=\"henk\" src=\"test5.png\"><img title=\"test4\" class=\"henk\" src=\"test4.png\">",
+            ],
+            [
+                "input" => [
+                    "text" => "test5 test4 daf",
+                    "classes" => "henk",
+                    "splitCharacter" => " ",
+                    "ifNotSayError" => true,
+                    "returnOnlyImages" => true,
+                ],
+                "expectedOutput" => "<img title=\"test5\" class=\"henk\" src=\"test5.png\"><img title=\"test4\" class=\"henk\" src=\"test4.png\">",
+            ],
         ];
     
         foreach ($testCasereturnTextWithImages as $test) {

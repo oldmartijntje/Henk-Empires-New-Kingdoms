@@ -162,20 +162,31 @@ function returnTextWithoutImagesTags($textToScan) {
     return $textToScan;
 }
 
-function returnDetectedImages($text, $splitCharacter = "|") {
+function returnDetectedImages($text, $splitCharacter = "") {
     global $imagesDictionary;
+    $originalSplitCharacter = $splitCharacter;
     if ($splitCharacter == "") {
-        return "";
+        $splitCharacter = " ";
     }
-    $splittedText = explode($splitCharacter, $text);
+    if (is_string($splitCharacter) && $splitCharacter != " ") {
+        $splittedText = explode($splitCharacter, $text);
+    } else {
+        $splittedText = preg_split("/\s+/", $text);
+    }
+    
     $arrayToKeep = [];
-    for ($i=0; $i < (count($splittedText) -1) / 2; $i++) { 
-        array_push($arrayToKeep, $splittedText[$i * 2 + 1]);
+    for ($i=0; $i < count($splittedText); $i++) { 
+        array_push($arrayToKeep, $splittedText[$i]);
     }
     $returnString = "";
     foreach ($arrayToKeep as $value) {
         if (array_key_exists($value, $imagesDictionary)) {
-            $returnString .= $splitCharacter . $value . $splitCharacter;
+            if ($originalSplitCharacter == "") {
+                $returnString .= $value;
+            } else {
+                $returnString .= $splitCharacter . $value . $splitCharacter;
+            }
+            
         }
     }
     return $returnString;
