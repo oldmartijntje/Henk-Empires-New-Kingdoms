@@ -91,20 +91,28 @@ function printCard($dictionary) {
     return $textMessage;
 }
 
-function returnTextWithImages($textToScan, $classesToEquipImagesWith = "", $splitCharacter = "|", $ifNotSayError = false) {
+function returnTextWithImages($textToScan, $classesToEquipImagesWith = "", $splitCharacter = "|", $ifNotSayError = false, $returnOnlyImages = false) {
     global $imagesDictionary;
     $amount = 0;
+    $images = '';
     foreach ($imagesDictionary as $key => $value) {
         $findThisKey = $splitCharacter . $key . $splitCharacter;
         if(strpos($textToScan, $findThisKey) !== false){
             $amount++;
+            $images .= "<img title=\"$key\" class=\"$classesToEquipImagesWith\" src=\"$value\">";
+            $textToScan = str_replace("$findThisKey", "", $textToScan);
+        } else {
+            $textToScan = str_replace("$findThisKey", "<span class=\"image-not-found\">$findThisKey</span>", $textToScan);
         }
-        $textToScan = str_replace("$findThisKey", "<img title=\"$key\" class=\"$classesToEquipImagesWith\" src=\"$value\">", $textToScan);
     }
     if ($amount == 0 && $ifNotSayError) {
-        $textToScan = "<img title=\"$textToScan\" class=\"$classesToEquipImagesWith\" src=\"" . getCorrectImage("404nf") . "\">";
+        $images = "<img title=\"$textToScan\" class=\"$classesToEquipImagesWith\" src=\"" . getCorrectImage("404nf") . "\">";
+        $textToScan = "";
     }
-    return $textToScan;
+    if ($returnOnlyImages) {
+        return $images;
+    }
+    return $images . $textToScan;
 }
 
 function returnTextWithoutImagesTags($textToScan) {

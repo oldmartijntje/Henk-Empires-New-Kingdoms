@@ -45,11 +45,11 @@ for ($i=0; $i < $amountOfCards; $i++) {
         <img src="<?php echo $cards[$i]['image'] ?>" alt="<?php echo $cards[$i]['name'] ?>">
         <?php if (isset($cards[$i]['series']) && $cards[$i]['series'] != "") { ?>
         <div class="series-icon">
-            <?php echo returnTextWithImages($cards[$i]['series'], "", "", true) ?>
+            <?php echo returnTextWithImages($cards[$i]['series'], "", "", true, true) ?>
         </div>
         <?php } ?>
         <div class="type-icon">
-            <?php echo returnTextWithImages($cards[$i]['type'], "", "", true) ?>
+            <?php echo returnTextWithImages($cards[$i]['type'], "", "", true, true) ?>
         </div>
     </div>
     <div class="card-info">
