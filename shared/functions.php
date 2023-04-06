@@ -102,7 +102,7 @@ function returnTextWithImages($textToScan, $classesToEquipImagesWith = "") {
 function returnTextWithoutImagesTags($textToScan) {
     global $imagesDictionary;
     foreach ($imagesDictionary as $key => $value) {
-        $textToScan = str_replace("|$key|", "   ", $textToScan);
+        $textToScan = str_replace("|$key|", "  ", $textToScan);
     }
     return $textToScan;
 }

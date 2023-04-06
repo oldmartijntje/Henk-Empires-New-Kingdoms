@@ -178,35 +178,35 @@
     width: 100%;
 }
 
-.textSize11px span {
+.textSize11px * {
     font-size: 11px;
 }
 
-.textSize10px span {
+.textSize10px * {
     font-size: 10px;
 }
 
-.textSize9px span {
+.textSize9px * {
     font-size: 9px;
 }
 
-.textSize8px span {
+.textSize8px * {
     font-size: 8px;
 }
 
-.textSize7px span {
+.textSize7px * {
     font-size: 7px;
 }
 
-.textSize6px span {
+.textSize6px * {
     font-size: 6px;
 }
 
-.textSize5px span {
+.textSize5px * {
     font-size: 5px;
 }
 
-.textSize4px span {
+.textSize4px * {
     font-size: 4px;
 }
 
@@ -221,6 +221,6 @@
 
 .inTextImages {
     display: inline-block;
-    vertical-align: middle;
-    height: 1rem;
+
+    height: 1em;
 }
