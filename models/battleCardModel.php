@@ -28,11 +28,49 @@ if (isset($_GET['type']) && $_GET['type'] == "random") {
         array_push($cards, $randomCard);
     }
 } else {
-    if ($amountOfCards > count($definedBattleCards)) {
+    if ($amountOfCards > count(getCorrectNumber($definedBattleCards))) {
         $amountOfCards = count(getCorrectNumber($definedBattleCards));
     }
     $cards = getCorrectNumber($definedBattleCards);
 }
+
+// statistics
+if (isset($_GET['stats']) && strtolower($_GET['stats']) == "true") {
+    ?>
+    <div class="statistics header">
+        <p class="headerItem margin">Amount of cards: <span title="with duplicate cards"><?php echo $amountOfCards ?></span>, <span title="without duplicate cards"><?php echo count($definedBattleCards) ?></span></p>
+        <?php foreach ($possibleOptions["type"] as $key => $value) { ?>
+        <p class="headerItem margin headerText" onclick="console.log('\'<?php echo $value ?>\'')"><?php echo "amount of '" . returnTextWithImages($value, "Icon", "", true, true) . "' type cards" ?>: <span title="with duplicate cards"><?php echo array_count_values(array_column(getCorrectNumber($definedBattleCards), 'type'))[$value]; ?></span>, <span title="without duplicate cards"><?php echo array_count_values(array_column($definedBattleCards, 'type'))[$value]; ?></span></p>
+        <?php } ?>
+        <?php foreach ($possibleOptions["series"] as $key => $value) { ?>
+        <p class="headerItem margin headerText" onclick="console.log('\'<?php echo $value ?>\'')"><?php echo "amount of '" . returnTextWithImages($value, "Icon", "", true, true) . "' series cards" ?>: <span title="with duplicate cards"><?php echo array_count_values(array_column(getCorrectNumber($definedBattleCards), 'series'))[$value]; ?></span>, <span title="without duplicate cards"><?php echo array_count_values(array_column($definedBattleCards, 'series'))[$value]; ?></span></p>
+        <?php } ?>
+        <?php foreach ($possibleOptions["energy"] as $key => $value) { ?>
+            <div class="headerItem margin">
+                <p class="headerText">amount of'"</p>
+                <div class="energy iconWithNumber">
+                    <img src="<?php echo getCorrectImage('Energy') ?>" alt="Energy Icon BackgroundIcon">
+                    <span class="IconNumber"><?php echo $value ?></span>
+                </div>
+                <p class="headerText">"' energy cards: <span title="with duplicate cards"><?php echo array_count_values(array_column(getCorrectNumber($definedBattleCards), 'energy'))[$value]; ?></span>, <span title="without duplicate cards"><?php echo array_count_values(array_column($definedBattleCards, 'energy'))[$value]; ?></span></p>
+            </div>
+        <?php } ?>
+        <?php foreach ($possibleOptions["power"] as $key => $value) { ?>
+            <div class="headerItem margin">
+                <p class="headerText">amount of'"</p>
+                <div class="power iconWithNumber">
+                    <img src="<?php echo getCorrectImage('Power') ?>" alt="Power Icon BackgroundIcon">
+                    <span class="IconNumber"><?php echo $value ?></span>
+                </div>
+                <p class="headerText">"' power cards: <span title="with duplicate cards"><?php echo array_count_values(array_column(getCorrectNumber($definedBattleCards), 'power'))[$value]; ?></span>, <span title="without duplicate cards"><?php echo array_count_values(array_column($definedBattleCards, 'power'))[$value]; ?></span></p>
+            </div>
+        <?php } ?>
+    </div>
+    <?php
+}
+
+
+
 for ($i=0; $i < $amountOfCards; $i++) { 
     ?>
 

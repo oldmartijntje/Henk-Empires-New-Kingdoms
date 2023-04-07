@@ -189,13 +189,18 @@ function createCard($card, $index, $BattleCardConfig) {
 }
 
 function getCorrectNumber($cards) {
-    $correctList = [];
-    foreach($cards as $singleCard) {
-        for ($i=0; $i < (int)$singleCard["amount"]; $i++) { 
-            array_push($correctList, $singleCard);
+    if (isset($_GET['doubles']) && strtolower($_GET['doubles']) == "false") {
+        return $cards;
+    } else {
+        $correctList = [];
+        foreach($cards as $singleCard) {
+            for ($i=0; $i < (int)$singleCard["amount"]; $i++) { 
+                array_push($correctList, $singleCard);
+            }
         }
+        return $correctList;
     }
-    return $correctList;
+    
 }
 
 

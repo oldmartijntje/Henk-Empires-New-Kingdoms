@@ -224,3 +224,22 @@
 
     height: 1em;
 }
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px;
+    background-color: #ffdca3;
+    color: #6f413b;
+}
+
+.headerItem {
+    display: flex;
+    align-items: center;
+}
+
+.margin {
+    margin: 1rem;
+}

@@ -384,7 +384,7 @@
                     "ifNotSayError" => true,
                     "returnOnlyImages" => true,
                 ],
-                "expectedOutput" => "<img title=\"\" class=\"\" src=\"owoThisIsNotFound.exe\">",
+                "expectedOutput" => "<img title=\"|test5| |unknown|\" class=\"\" src=\"owoThisIsNotFound.exe\">",
             ],
             [
                 "input" => [
@@ -522,7 +522,7 @@
                     "text" => "This is just text.",
                     "splitCharacter" => "|",
                 ],
-                "expectedOutput" => "",
+                "expectedOutput" => ["", "This is just text."],
             ],
             [
                 "input" => [
@@ -536,7 +536,7 @@
                     "text" => "This is just text with test1.",
                     "splitCharacter" => "",
                 ],
-                "expectedOutput" => "",
+                "expectedOutput" => ["", "This is just text with test1."],
             ],
             [
                 "input" => [
@@ -564,7 +564,7 @@
                     "text" => "This is |test1| with |test1|, |test1|.",
                     "splitCharacter" => "",
                 ],
-                "expectedOutput" => "",
+                "expectedOutput" => ["", "This is |test1| with |test1|, |test1|."],
             ],
         ];
 
