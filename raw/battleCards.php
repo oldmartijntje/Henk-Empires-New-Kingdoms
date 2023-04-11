@@ -5,10 +5,10 @@ require "shared/functions.php";
 $definedBattleCards = [
     // B001- B010
     ["name" => "Sprinter","power" => 0,"energy" => 0,"balance" => 1,"onReveal" => "","onGoing" => "This card has as much |Power| power as unspent |Energy| Energy","description" => "Gotta go fast","special" => "","image" => "","type" => "Fire","series" => ""],
-    ["name" => "Henk the Stone","power" => 1,"energy" => 0,"balance" => 1,"onReveal" => "","onGoing" => "","description" => "You are my rock","special" => "","image" => "assets/images/B002.png","type" => "Earth","series" => "Henk"],
+    ["name" => "Henk the Stone" ,"power" => 1,"energy" => 0,"balance" => 1,"onReveal" => "","onGoing" => "","description" => "You are my rock","special" => "","image" => "assets/images/B002.png","type" => "Earth","series" => "Henk"],
     ["name" => "GLaDOS","power" => 2,"energy" => 0,"balance" => 3,"onReveal" => "Afflict all other cards with -1 |Power| power","onGoing" => "","description" => "Neurotoxins go brrrr","special" => "","image" => "assets/images/B003.png","type" => "Electric","series" => ""],
-    ["name" => "Easter Chicks","power" => 1,"energy" => 1,"balance" => 0,"onReveal" => "","onGoing" => "","description" => "cluck cluck","special" => "","image" => "","type" => "Water","series" => "revolution"],
-    ["name" => "Egg", "amount"=>"12","deck"=> "S","power" => 2,"energy" => 1,"balance" => 1,"onReveal" => "","onGoing" => "","description" => "Fried unborn Chick","special" => "","image" => "","type" => "Fire","series" => ""],
+    ["name" => "Easter Chicks", "supportExtraAmount" => 8,"power" => 1,"energy" => 1,"balance" => 0,"onReveal" => "","onGoing" => "","description" => "cluck cluck","special" => "","image" => "","type" => "Water","series" => "revolution"],
+    ["name" => "Egg", "amount"=>4,"deck"=> "S","power" => 2,"energy" => 1,"balance" => 1,"onReveal" => "","onGoing" => "","description" => "Fried unborn Chick","special" => "","image" => "","type" => "Fire","series" => ""],
     ["name" => "Forced Parking","power" => 3,"energy" => 1,"balance" => 4,"onReveal" => "pick someones card (blindly) they have to play it (if they have 3 |Energy| Energy left), the cost of that card is now 3","onGoing" => "","description" => "","special" => "","image" => "","type" => "Earth","series" => ""],
     ["name" => "","power" => 2,"energy" => 2,"balance" => 0,"onReveal" => "","onGoing" => "","description" => "","special" => "","image" => "","type" => "Wind","series" => ""],
     ["name" => "","power" => 3,"energy" => 2,"balance" => 1,"onReveal" => "","onGoing" => "","description" => "","special" => "","image" => "","type" => "Water","series" => ""],
@@ -110,7 +110,7 @@ $definedBattleCards = [
     ["name" => "0-point", "power" => "1", "energy" => "2", "balance" => "4", "onReveal" => "all cards get their |Power| power set to 1 (af a card had a booster from +1 and loses it after this card, it will subtract the lost booster from 1 |Power| power)", "onGoing" => "", "description" => "", "special" => "", "type" => "Earth", "series" => "", "image" => ""],
     ["name" => "Shortcut", "power" => "10", "energy" => "3", "balance" => "1", "onReveal" => "", "onGoing" => "Has 1 less |Power| power for each |Water| type card played by any player", "description" => "Very safe shortcut", "special" => "", "type" => "Earth", "series" => "", "image" => ""],
     ["name" => "I am lost?", "power" => "2", "energy" => "1", "balance" => "1", "onReveal" => "Every opponent loses 2 |Energy| Energy (if they have any left)", "onGoing" => "", "description" => "I want to go home.", "special" => "", "type" => "Earth", "series" => "", "image" => ""],
-    ["name" => "Poultry Man", "power" => "3", "energy" => "1", "balance" => "3", "onReveal" => "give 2 (B005) Egg cards to yourself and 1 (B005) Egg card to an opponent of choice", "onGoing" => "", "description" => "Poultry man strikes again!", "special" => "", "type" => "Fire", "series" => "revolution blockgame", "image" => ""],
+    ["name" => "Poultry Man", "power" => "3", "energy" => "1", "balance" => "3", "onReveal" => "give 2 (B004) Easter Chicks cards to yourself and 1 (B005) Egg card to an opponent of choice", "onGoing" => "", "description" => "Poultry man strikes again!", "special" => "", "type" => "Fire", "series" => "revolution blockgame", "image" => ""],
     ["name" => "Pesky Bird", "power" => "3", "energy" => "2", "balance" => "2", "onReveal" => "Give all |blockgame| series cards that you own 2 extra |Power| power", "onGoing" => "", "description" => "Pesky bird!", "special" => "", "type" => "Wind", "series" => "blockgame", "image" => ""]
 ];
 
@@ -125,7 +125,7 @@ $emptyModel = [
     "series" => ""
 ];
 
-$blacklistedKeys = ["id", "image", "name","description", "amount"];
+$blacklistedKeys = ["id", "image", "name","description", "amount", "supportExtraAmount"];
 
 $possibleOptions = [
     "power" => [],
@@ -198,6 +198,13 @@ function getCorrectNumber($cards) {
         foreach($cards as $singleCard) {
             for ($i=0; $i < (int)$singleCard["amount"]; $i++) { 
                 array_push($correctList, $singleCard);
+            }
+            if (isset($singleCard["supportExtraAmount"]) && $singleCard["supportExtraAmount"] != "") {
+                for ($i=0; $i < (int)$singleCard["supportExtraAmount"]; $i++) { 
+                    $tempCard = $singleCard;
+                    $tempCard["deck"] = "S";
+                    array_push($correctList, $tempCard);
+                }
             }
         }
         return $correctList;
