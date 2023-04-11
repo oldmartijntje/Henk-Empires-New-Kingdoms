@@ -65,6 +65,12 @@ if (isset($_GET['stats']) && strtolower($_GET['stats']) == "true") {
                 <p class="headerText">"' power cards: <span title="with duplicate cards"><?php echo array_count_values(array_column(getCorrectNumber($definedBattleCards), 'power'))[$value]; ?></span>, <span title="without duplicate cards"><?php echo array_count_values(array_column($definedBattleCards, 'power'))[$value]; ?></span></p>
             </div>
         <?php } ?>
+        <?php foreach ($possibleOptions["shopCost"] as $key => $value) { ?>
+        <p class="headerItem margin headerText" onclick="console.log('\'<?php echo $value ?>\'')"><?php echo "amount of '" . $value . "' shopCost cards" ?>: <span title="with duplicate cards"><?php echo array_count_values(array_column(getCorrectNumber($definedBattleCards), 'shopCost'))[$value]; ?></span>, <span title="without duplicate cards"><?php echo array_count_values(array_column($definedBattleCards, 'shopCost'))[$value]; ?></span></p>
+        <?php } ?>
+        <?php foreach ($possibleOptions["deck"] as $key => $value) { ?>
+        <p class="headerItem margin headerText" onclick="console.log('\'<?php echo $value ?>\'')"><?php echo "amount of '" . $value . "' deck cards" ?>: <span title="with duplicate cards"><?php echo array_count_values(array_column(getCorrectNumber($definedBattleCards), 'deck'))[$value]; ?></span>, <span title="without duplicate cards"><?php echo array_count_values(array_column($definedBattleCards, 'deck'))[$value]; ?></span></p>
+        <?php } ?>
     </div>
     <?php
 }

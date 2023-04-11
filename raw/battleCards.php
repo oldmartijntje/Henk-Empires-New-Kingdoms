@@ -125,7 +125,7 @@ $emptyModel = [
     "series" => ""
 ];
 
-$blacklistedKeys = ["id", "shopCost", "deck", "image", "name","description", "amount"];
+$blacklistedKeys = ["id", "image", "name","description", "amount"];
 
 $possibleOptions = [
     "power" => [],
@@ -136,6 +136,8 @@ $possibleOptions = [
     "special" => [],
     "type" => [],
     "series" => [],
+    "shopCost" => [],
+    "deck" => [],
 ];
 
 
