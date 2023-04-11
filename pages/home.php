@@ -13,6 +13,7 @@
         <a href="?page=battleCards&type=default&amount=all&stats=true&doubles=true" class="websiteTitle menuItem whiteText margin headerItem">battleCards preset with statistics</a>
         <a href="?page=battleCards&type=random&amount=18&stats=false" class="websiteTitle menuItem whiteText margin headerItem">battleCards randomized</a>
         <a href="?page=unitTests" class="websiteTitle menuItem whiteText margin headerItem">unitTests</a>
+        <a href="?page=locations" class="websiteTitle menuItem whiteText margin headerItem">locations</a>
     </div>
 </body>
 </html>

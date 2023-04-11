@@ -11,6 +11,7 @@
         'home' => 'pages/home.php',
         "battleCards" => "pages/cardDesign.php",
         "unitTests" => "pages/unitTests.php",
+        "locations" => "pages/cardDesign.php",
     );
     ?>
 
