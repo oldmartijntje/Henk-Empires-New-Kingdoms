@@ -212,23 +212,10 @@ function getCorrectNumber($cards) {
     
 }
 
-
-
 for ($x = 0; $x < count($definedBattleCards); $x++) {
     $definedBattleCards[$x] = createCard($definedBattleCards[$x], $x, $BattleCardConfig);
 }
 
-foreach ($definedBattleCards as $card) {
-    foreach($card as $key=>$value) {
-        if (in_array((string)$key, $blacklistedBattlecardKeys)) {
-            continue;
-        } else {
-            if (in_array($value, $possibleBattlecardOptions[$key])) {
-                continue;
-            } else {
-                array_push($possibleBattlecardOptions[$key],$value);
-            }
-        }
-    }
-}
+$possibleBattlecardOptions = getAllOptions($definedBattleCards, $blacklistedBattlecardKeys, $possibleBattlecardOptions);
+
 ?>

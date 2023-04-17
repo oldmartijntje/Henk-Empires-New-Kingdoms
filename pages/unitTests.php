@@ -573,6 +573,75 @@
             $tests = testFunction($result, $test["expectedOutput"], $tests);
         }
 
+        echo "<h1>Testing getAllOptions</h1>";
+        // Test cases for getAllOptions
+        $testCasesGetAllOptions = [
+            // Test case 1
+            [
+                "definedCards" => [
+                    ["color" => "red", "value" => 5],
+                    ["color" => "green", "value" => 10],
+                ],
+                "blacklistedKeys" => ["color"],
+                "possibleOptions" => [
+                    "value" => [1, 2, 3, 4, 5]
+                ],
+                "expected" => [
+                    "value" => [1, 2, 3, 4, 5, 10]
+                ]
+            ],
+            // Test case 2
+            [
+                "definedCards" => [
+                    ["color" => "red", "value" => 5],
+                    ["color" => "green", "value" => 10],
+                ],
+                "blacklistedKeys" => ["value"],
+                "possibleOptions" => [
+                    "value" => [1, 2, 3, 4, 5],
+                    "color" => []
+                ],
+                "expected" => [
+                    "value" => [1, 2, 3, 4, 5],
+                    "color" => ["red", "green"]
+                ]
+            ],
+            // Test case 3
+            [
+                "definedCards" => [
+                    ["color" => "red", "value" => 5],
+                    ["color" => "green", "value" => 10],
+                ],
+                "blacklistedKeys" => ["value"],
+                "possibleOptions" => [
+                    "value" => [1, 2, 3, 4, 5],
+                ],
+                "expected" => [
+                    "value" => [1, 2, 3, 4, 5],
+                    "color" => ["red", "green"]
+                ]
+            ],
+            // Test case 4
+            [
+                "definedCards" => [
+                    ["color" => "red", "value" => 5],
+                    ["color" => "green", "value" => 10],
+                ],
+                "blacklistedKeys" => ["value"],
+                "possibleOptions" => [
+                ],
+                "expected" => [
+                    "color" => ["red", "green"]
+                ]
+            ]
+        ];
+
+        // Run tests for getAllOptions
+        foreach ($testCasesGetAllOptions as $testCase) {
+            $result = getAllOptions($testCase["definedCards"], $testCase["blacklistedKeys"], $testCase["possibleOptions"]);
+            $tests = testFunction($result, $testCase["expected"], $tests);
+        }
+
         // Print test results
         echo "<h2>Test results:</h2>";
         echo "Tests started: " . $tests["amountStarted"] . "<br>";

@@ -203,4 +203,24 @@ function returnDetectedImages($text, $splitCharacter = "") {
     return $returnString;
 }
 
+function getAllOptions($definedCards, $blacklistedKeys, $possibleOptions) {
+    foreach ($definedCards as $card) {
+        foreach($card as $key=>$value) {
+            if (in_array((string)$key, $blacklistedKeys)) {
+                continue;
+            } else {
+                if (!array_key_exists($key, $possibleOptions)) {
+                    $possibleOptions[$key] = [];
+                }
+                if (in_array($value, $possibleOptions[$key])) {
+                    continue;
+                } else {
+                    array_push($possibleOptions[$key],$value);
+                }
+            }
+        }
+    }
+    return $possibleOptions;
+}
+
 ?>

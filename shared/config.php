@@ -15,6 +15,17 @@ $BattleCardConfig = [
     "defaultAmount" => 1,
 ];
 
+$LocationConfig = [
+    "id" => "L%s",
+    "defaultImage" => "assets/images/404nf.png",
+    "defaultName" => "Weg gon loesoe",
+    "randomization" => [
+        "chooseBetween" => ["onReveal", "onGoing", "special", ""],
+        "amount" => 1
+    ],
+    "defaultAmount" => 1,
+];
+
 $GenerationSettings = [
     "defaultCardsAmount" => "all",
     "randomCardsAmount" => 18,
