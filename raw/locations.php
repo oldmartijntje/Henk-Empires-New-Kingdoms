@@ -40,6 +40,7 @@ $definedLocations = [
 
 $emptyLocationModel = [
     "onRevealL" => "",
+    "onReveal" => "",
     "onGoingL" => "",
     "specialL" => "",
     "icons" => ""

@@ -80,8 +80,10 @@ function generateRandom($options, $emptyModel, $selectionList = [], $amountOfSel
     }
     $chosen = returnItems($selectionList, $amountOfSelectionList);
     foreach ($chosen as $value) {
-        $val = array_rand($options[$value]);
-        $random[$value] = $options[$value][$val];
+        if (array_key_exists($value, $options)) {
+            $val = array_rand($options[$value]);
+            $random[$value] = $options[$value][$val];
+        }
     }
     return $random;
 }

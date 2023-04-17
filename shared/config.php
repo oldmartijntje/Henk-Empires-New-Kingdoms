@@ -20,10 +20,10 @@ $LocationConfig = [
     "defaultImage" => "assets/images/404nfL.png",
     "defaultName" => "Weg gon loesoe",
     "randomization" => [
-        "chooseBetween" => ["onReveal", "onGoing", "special", ""],
+        "chooseBetween" => ["onRevealL", "onReveal", "onGoingL", "specialL", ""],
         "amount" => 1
     ],
-    "defaultAmount" => 1,
+    "defaultAmount" => 2,
 ];
 
 $GenerationSettings = [

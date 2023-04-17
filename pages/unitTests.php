@@ -283,6 +283,8 @@
             "test4" => "test4.png",
             "test5" => "test5.png",
             "404nf" => "owoThisIsNotFound.exe",
+            "kaas" => "kaas.png",
+            "kaa" => "kaa.png",
         ];
         // Define test cases
         $testCasereturnTextWithImages = [
@@ -455,6 +457,16 @@
                     "returnOnlyImages" => true,
                 ],
                 "expectedOutput" => "<img title=\"test5\" class=\"henk\" src=\"test5.png\"><img title=\"test4\" class=\"henk\" src=\"test4.png\">",
+            ],
+            [
+                "input" => [
+                    "text" => "kaas",
+                    "classes" => "henk",
+                    "splitCharacter" => "",
+                    "ifNotSayError" => true,
+                    "returnOnlyImages" => true,
+                ],
+                "expectedOutput" => "<img title=\"<img title=\"kaa\" class=\"henk\" src=\"kaa.png\">s\" class=\"henk\" src=\"<img title=\"kaa\" class=\"henk\" src=\"kaa.png\">s.png\">",
             ],
         ];
     
