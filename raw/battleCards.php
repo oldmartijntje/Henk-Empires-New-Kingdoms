@@ -114,7 +114,7 @@ $definedBattleCards = [
     ["name" => "Pesky Bird", "power" => "3", "energy" => "2", "balance" => "2", "onReveal" => "Give all |blockgame| series cards that you own 2 extra |Power| power", "onGoing" => "", "description" => "Pesky bird!", "special" => "", "type" => "Wind", "series" => "blockgame", "image" => ""]
 ];
 
-$emptyModel = [
+$emptyBattleCardModel = [
     "power" => 0,
     "energy" => 0,
     "balance" => 0,
@@ -125,9 +125,9 @@ $emptyModel = [
     "series" => ""
 ];
 
-$blacklistedKeys = ["id", "image", "name","description", "amount", "supportExtraAmount"];
+$blacklistedBattlecardKeys = ["id", "image", "name","description", "amount", "supportExtraAmount"];
 
-$possibleOptions = [
+$possibleBattlecardOptions = [
     "power" => [],
     "energy" => [],
     "balance" => [],
@@ -220,13 +220,13 @@ for ($x = 0; $x < count($definedBattleCards); $x++) {
 
 foreach ($definedBattleCards as $card) {
     foreach($card as $key=>$value) {
-        if (in_array((string)$key, $blacklistedKeys)) {
+        if (in_array((string)$key, $blacklistedBattlecardKeys)) {
             continue;
         } else {
-            if (in_array($value, $possibleOptions[$key])) {
+            if (in_array($value, $possibleBattlecardOptions[$key])) {
                 continue;
             } else {
-                array_push($possibleOptions[$key],$value);
+                array_push($possibleBattlecardOptions[$key],$value);
             }
         }
     }
