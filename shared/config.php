@@ -17,7 +17,7 @@ $BattleCardConfig = [
 
 $LocationConfig = [
     "id" => "L%s",
-    "defaultImage" => "assets/images/404nf.png",
+    "defaultImage" => "assets/images/404nfL.png",
     "defaultName" => "Weg gon loesoe",
     "randomization" => [
         "chooseBetween" => ["onReveal", "onGoing", "special", ""],
@@ -38,6 +38,7 @@ $imagesDictionary = [
     "Wind" => "assets/icons/wind.png",
     "Earth" => "assets/icons/stone.png",
     "404nf" => "assets/icons/404nf.png",
+    "404nfL" => "assets/icons/404nfL.png",
     "Power" => "assets/icons/power.png",
     "Energy" => "assets/icons/energy.png",
     "Henk" => "assets/icons/henk.png",
@@ -47,8 +48,11 @@ $imagesDictionary = [
     "revolution" => "assets/icons/revolution.png",
     "???" => "assets/icons/questionmarks.png",
     "blockgame" => "assets/icons/mijnkjweft.png",
+    "onRevealL" => "assets/icons/onrevealLocation.png",
     "onReveal" => "assets/icons/onreveal.png",
+    "specialL" => "assets/icons/specialLocation.png",
     "special" => "assets/icons/special.png",
+    "onGoingL" => "assets/icons/ongoingLocation.png",
     "onGoing" => "assets/icons/ongoing.png",
 ];
 

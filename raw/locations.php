@@ -4,22 +4,22 @@ require "shared/functions.php";
 
 $definedLocations = [
     // L001 - L010
-    ["name" => "", "onGoingL" => "Double the onGoing effects", "icons" => "", "description" => "", "image" => ""],
-    ["name" => "", "onGoingL" => "Double the on reveal effects", "icons" => "", "description" => "", "image" => ""],
-    ["name" => "", "onGoingL" => "When this reaches a total power of 10+, switch the location", "icons" => "", "description" => "", "image" => ""],
+    ["name" => "", "onGoingL" => "Double the |onGoing| onGoing effects", "icons" => "", "description" => "", "image" => ""],
+    ["name" => "", "onGoingL" => "Double the |onReveal| on reveal effects", "icons" => "", "description" => "", "image" => ""],
+    ["name" => "", "onGoingL" => "When this reaches a total |Power| power of 10+, switch the location", "icons" => "", "description" => "", "image" => ""],
     ["name" => "", "onRevealL" => "Add a random card to everyones deck.", "icons" => "", "description" => "", "image" => ""],
-    ["name" => "", "onGoingL" => "all cards cost 1 less", "icons" => "", "description" => "", "image" => ""],
-    ["name" => "", "onGoingL" => "all cards cost 1 more", "icons" => "", "description" => "", "image" => ""],
-    ["name" => "", "specialL" => "everyone teams up with their neighbour, you now gotta win together (total energy is 22)", "icons" => "teams", "description" => "", "image" => ""],
-    ["name" => "", "onRevealL" => "everyone has 10 extra energy", "icons" => "", "description" => "", "image" => ""],
-    ["name" => "", "onGoingL" => "energy cost becomes the power of the card", "icons" => "", "description" => "", "image" => ""],
+    ["name" => "", "onGoingL" => "all cards cost 1 |Energy| less", "icons" => "", "description" => "", "image" => ""],
+    ["name" => "", "onGoingL" => "all cards cost 1 |Energy| more", "icons" => "", "description" => "", "image" => ""],
+    ["name" => "", "specialL" => "everyone teams up with their neighbour, you now gotta win together (total |Energy| energy is 22)", "icons" => "teams", "description" => "", "image" => ""],
+    ["name" => "", "onRevealL" => "everyone has 10 extra |Energy| energy", "icons" => "", "description" => "", "image" => ""],
+    ["name" => "", "onGoingL" => "|Energy| energy cost becomes the |Power| power of the card", "icons" => "", "description" => "", "image" => ""],
     ["name" => "404-NOTFOUND", "icons" => "", "description" => "nothing happens", "image" => ""],
     // L011 - L020
     ["name" => "Catnip factory", "onGoingL" => "when you play a card you have to meow", "icons" => "", "description" => "", "image" => ""],
     ["name" => "", "onGoingL" => "only 2 cards can be played per person", "icons" => "", "description" => "", "image" => ""],
     ["name" => "Black hole", "onGoingL" => "cards have no effects", "icons" => "", "description" => "", "image" => ""],
-    ["name" => "", "onGoingL" => "onGoing effects are disabled", "icons" => "", "description" => "", "image" => ""],
-    ["name" => "", "onGoingL" => "on reveal effects are disabled", "icons" => "", "description" => "", "image" => ""],
+    ["name" => "", "onGoingL" => "|onGoing| onGoing effects are disabled", "icons" => "", "description" => "", "image" => ""],
+    ["name" => "", "onGoingL" => "|onReveal| on reveal effects are disabled", "icons" => "", "description" => "", "image" => ""],
     ["name" => "Nuclear launch", "onRevealL" => "turns into Nuked world (L017) next turn", "icons" => "", "description" => "", "image" => ""],
     ["name" => "Nuked world", "onGoingL" => "cards can't be played", "icons" => "notDrawable", "description" => "", "image" => ""],
     ["name" => "", "onGoingL" => "you can only play 1 card per turn", "icons" => "", "description" => "", "image" => ""],
@@ -27,10 +27,15 @@ $definedLocations = [
     ["name" => "Flooded", "onGoingL" => "only water type cards can be played here", "icons" => "notDrawable", "description" => "", "image" => ""],
     // L021 - L030
     ["name" => "", "onGoingL" => "you can only play cards here that have effects", "icons" => "", "description" => "", "image" => ""],
-    ["name" => "", "onGoingL" => "all cards cost 2", "icons" => "", "description" => "", "image" => ""],
-    ["name" => "Mushroom kingdom", "onGoingL" => "all mushroom series cards get +1 power", "icons" => "", "description" => "", "image" => ""],
-    ["name" => "Aperture", "onGoingL" => "all cards lose 3 power once played (2 will turn into -1)", "icons" => "", "description" => "neurotoxins go brrrr", "image" => ""],
-    ["name" => "Texas", "onRevealL" => "all cards in your hand lose 3 power (2 will turn into -1)", "icons" => "", "description" => "Gotta pay your taxes", "image" => ""],
+    ["name" => "", "onGoingL" => "all cards cost 2 |Energy|", "icons" => "", "description" => "", "image" => ""],
+    ["name" => "Mushroom kingdom", "onGoingL" => "all |Mushroom| mushroom series cards get +1 |Power| power", "icons" => "", "description" => "", "image" => ""],
+    ["name" => "Aperture", "onGoingL" => "all cards lose 3 |Power| power once played (2 will turn into -1)", "icons" => "", "description" => "neurotoxins go brrrr", "image" => ""],
+    ["name" => "Stockmarket", "onRevealL" => "all cards in your hand lose 3 |Power| power (2 will turn into -1)", "icons" => "", "description" => "Deflation", "image" => ""],
+    ["name" => "Kingdom of the Ducks", "onReveal" => "Add 1 |Power| power to all played cards", "icons" => "", "description" => "No ducks were BBQ'd", "image" => ""],
+    ["name" => "", "onGoingL" => "3 and 4 |Energy| cost cards cost 5", "icons" => "", "description" => "", "image" => ""],
+    ["name" => "", "onGoingL" => "1 and 2 |Energy| cost cards cost 0", "icons" => "", "description" => "", "image" => ""],
+    ["name" => "", "onRevealL" => "Everyone rolls dice, they get this much extra |Energy| energy", "icons" => "", "description" => "", "image" => ""],
+    ["name" => "Hide and seek", "onGoingL" => "Cards get revealed at the end of the battle.", "icons" => "", "description" => "", "image" => ""],
 ];
 
 $emptyLocationModel = [

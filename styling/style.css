@@ -29,6 +29,15 @@
     padding: 5px 10px;
 }
 
+.location-header {
+    color: #000000;
+    background-color: #84ffda;
+}
+
+.location {
+    background-color: rgb(179, 250, 214);
+}
+
 .card-header .name {
     font-size: 16px;
     font-weight: bold;

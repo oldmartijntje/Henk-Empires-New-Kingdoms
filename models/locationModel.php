@@ -46,8 +46,8 @@ if (isset($_GET['stats']) && strtolower($_GET['stats']) == "true") {
 for ($i=0; $i < $amountOfCards; $i++) { 
     ?>
 <link rel="stylesheet" href="styling/style.css">
-<div class="card" onclick="console.log(<?php echo printCard($cards[$i]) ?>)">
-    <div class="card-header">
+<div class="card location" onclick="console.log(<?php echo printCard($cards[$i]) ?>)">
+    <div class="card-header location-header">
         <div class="name"><?php echo $cards[$i]['name'] ?></div>
         <div class="id"><?php echo $cards[$i]['id'] ?></div>
     </div>
@@ -83,6 +83,20 @@ for ($i=0; $i < $amountOfCards; $i++) {
             <span class="flexSpan">
                 <?php echo returnTextWithImages("|specialL|", "displayBlock Icon") ?>
                 <span><?php echo returnTextWithImages($cards[$i]['specialL'], "inTextImages") ?></span>
+            </span>
+        </div>
+        <?php } if (isset($cards[$i]['special']) && $cards[$i]['special'] != "") { ?>
+        <div title="special abillity" class="ability <?php getTextSizeClass($cards[$i])?>">
+            <span class="flexSpan">
+                <?php echo returnTextWithImages("|special|", "displayBlock Icon") ?>
+                <span><?php echo returnTextWithImages($cards[$i]['special'], "inTextImages") ?></span>
+            </span>
+        </div>
+        <?php } if (isset($cards[$i]['onReveal']) && $cards[$i]['onReveal'] != "") { ?>
+        <div title="onReveal abillity" class="ability <?php getTextSizeClass($cards[$i])?>">
+            <span class="flexSpan">
+                <?php echo returnTextWithImages("|onReveal|", "displayBlock Icon") ?>
+                <span><?php echo returnTextWithImages($cards[$i]['onReveal'], "inTextImages") ?></span>
             </span>
         </div>
         <?php } ?>
