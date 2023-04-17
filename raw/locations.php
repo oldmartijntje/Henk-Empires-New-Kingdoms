@@ -11,11 +11,11 @@ $definedLocations = [
     ["name" => "", "onGoingL" => "all cards cost 1 |Energy| less", "icons" => "", "description" => "", "image" => ""],
     ["name" => "", "onGoingL" => "all cards cost 1 |Energy| more", "icons" => "", "description" => "", "image" => ""],
     ["name" => "", "specialL" => "everyone teams up with their neighbour, you now gotta win together (total |Energy| energy is 22)", "icons" => "teams", "description" => "", "image" => ""],
-    ["name" => "", "onRevealL" => "everyone has 10 extra |Energy| energy", "icons" => "", "description" => "", "image" => ""],
+    ["name" => "Hollywood", "onRevealL" => "everyone has 10 extra |Energy| energy", "icons" => "", "description" => "What on earth is he doing?", "image" => ""],
     ["name" => "", "onGoingL" => "|Energy| energy cost becomes the |Power| power of the card", "icons" => "", "description" => "", "image" => ""],
     ["name" => "404-NOTFOUND", "icons" => "", "description" => "nothing happens", "image" => ""],
     // L011 - L020
-    ["name" => "Catnip factory", "onGoingL" => "when you play a card you have to meow", "icons" => "", "description" => "", "image" => ""],
+    ["name" => "Catnip factory", "onGoingL" => "when you play a card you have to meow for a 1 |Energy| cost discount (1 per card)", "icons" => "", "description" => "", "image" => ""],
     ["name" => "", "onGoingL" => "only 2 cards can be played per person", "icons" => "", "description" => "", "image" => ""],
     ["name" => "Black hole", "onGoingL" => "cards have no effects", "icons" => "", "description" => "", "image" => ""],
     ["name" => "", "onGoingL" => "|onGoing| onGoing effects are disabled", "icons" => "", "description" => "", "image" => ""],
@@ -36,6 +36,8 @@ $definedLocations = [
     ["name" => "", "onGoingL" => "1 and 2 |Energy| cost cards cost 0", "icons" => "", "description" => "", "image" => ""],
     ["name" => "", "onRevealL" => "Everyone rolls dice, they get this much extra |Energy| energy", "icons" => "", "description" => "", "image" => ""],
     ["name" => "Hide and seek", "onGoingL" => "Cards get revealed at the end of the battle.", "icons" => "", "description" => "", "image" => ""],
+    // L031 - L040
+    ["name" => "Wildfire", "onReveal" => "If your card is a |Fire| fire type, throw a |D6| 6 sided dice and add it to it's power |Power|", "icons" => "", "description" => "", "image" => ""],
 ];
 
 $emptyLocationModel = [
