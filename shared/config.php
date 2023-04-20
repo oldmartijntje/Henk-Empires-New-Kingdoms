@@ -60,9 +60,12 @@ $imagesDictionary = [
     "onGoing" => "assets/icons/ongoing.png",
     "brick" => "assets/icons/brick.png",
     "Fun" => "assets/icons/partypopper.png",
-    "GGCU" => "assets/icons/duckbot.png",
+    "GGCU" => "assets/icons/ggcu.png",
+    "DUCKIFY" => "assets/icons/duckbot.png",
     "D6" => "assets/icons/D6.png",
     "D20" => "assets/icons/D20.png",
+    "aim" => "assets/icons/aim.png",
+    "bow" => "assets/icons/bow.png",
 ];
 
 ?>
