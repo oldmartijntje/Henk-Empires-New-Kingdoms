@@ -21,9 +21,13 @@ $LocationConfig = [
     "defaultName" => "Weg gon loesoe",
     "randomization" => [
         "chooseBetween" => ["onRevealL", "onReveal", "onGoingL", "specialL", ""],
-        "amount" => 1
+        "amount" => 2
     ],
-    "defaultAmount" => 2,
+];
+
+$FicheConfig = [
+    "id" => "F%s",
+    "defaultAmount" => 8,
 ];
 
 $GenerationSettings = [

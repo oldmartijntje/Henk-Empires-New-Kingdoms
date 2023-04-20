@@ -32,12 +32,18 @@ $definedLocations = [
     ["name" => "Aperture", "onGoingL" => "all cards lose 3 |Power| power once played (2 will turn into -1)", "icons" => "", "description" => "neurotoxins go brrrr", "image" => ""],
     ["name" => "Stockmarket", "onRevealL" => "all cards in your hand lose 3 |Power| power (2 will turn into -1)", "icons" => "", "description" => "Deflation", "image" => ""],
     ["name" => "Kingdom of the Ducks", "onReveal" => "Add 1 |Power| power to all played cards", "icons" => "", "description" => "No ducks were BBQ'd", "image" => ""],
-    ["name" => "", "onGoingL" => "3 and 4 |Energy| cost cards cost 5", "icons" => "", "description" => "", "image" => ""],
-    ["name" => "", "onGoingL" => "1 and 2 |Energy| cost cards cost 0", "icons" => "", "description" => "", "image" => ""],
+    ["name" => "", "onGoingL" => "3 and 4 |Energy| cost cards cost 5 |Energy|", "icons" => "", "description" => "", "image" => ""],
+    ["name" => "", "onGoingL" => "1 and 2 |Energy| cost cards cost 0 |Energy|", "icons" => "", "description" => "", "image" => ""],
     ["name" => "", "onRevealL" => "Everyone rolls dice, they get this much extra |Energy| energy", "icons" => "", "description" => "", "image" => ""],
     ["name" => "Hide and seek", "onGoingL" => "Cards get revealed at the end of the battle.", "icons" => "", "description" => "", "image" => ""],
     // L031 - L040
     ["name" => "Wildfire", "onReveal" => "If your card is a |Fire| fire type, throw a |D6| 6 sided dice and add it to it's power |Power|", "icons" => "", "description" => "", "image" => ""],
+    ["name" => "", "onReveal" => "If your card is a |Water| water type, throw a |D6| 6 sided dice and add it to it's power |Power|", "icons" => "", "description" => "", "image" => ""],
+    ["name" => "", "specialL" => "If someone can correctly guess what card you played when it's not yet revealed, it will have 2 less |Power| power", "icons" => "Fun", "description" => "", "image" => ""],
+    ["name" => "", "specialL" => "It's not turn based. Set a 5 minute timer, everyone can play cards whenever they want. Battle is over when timer finishes.", "icons" => "Fun", "description" => "", "image" => ""],
+    ["name" => "", "specialL" => "All cards change type to |???| type", "icons" => "???", "description" => "", "image" => ""],
+    ["name" => "", "onReveal" => "turn all your cards 90 degrees in the same direction.", "onGoingL" => "Remove all cards that face it's player.", "icons" => "", "description" => "", "image" => ""],
+    ["name" => "", "onReveal" => "Replace it with a random card.", "icons" => "", "description" => "", "image" => ""],
 ];
 
 $emptyLocationModel = [
@@ -68,9 +74,6 @@ function getImage($card, $index, $LocationConfig) {
 
 function createCard($card, $index, $LocationConfig) {
     $card = calculateId($card, $index + 1, $LocationConfig["id"]);
-    if (!isset($card["amount"]) || $card["amount"] == "") {
-        $card["amount"] = $LocationConfig["defaultAmount"];
-    }
     if (!isset($card["name"]) || $card["name"] == "") {
         $card["name"] = $LocationConfig["defaultName"];
     }

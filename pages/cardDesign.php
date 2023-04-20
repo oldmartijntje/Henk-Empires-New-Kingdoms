@@ -13,6 +13,7 @@
     $loadDict = array(
         "battleCards" => "models/battleCardModel.php",
         "locations" => "models/locationModel.php",
+        "fiches" => "models/fichesModel.php",
     );
     
     if (isset($_GET['page'])) {
