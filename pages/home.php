@@ -14,6 +14,7 @@
         <a href="?page=battleCards&type=random&amount=18&stats=false" class="websiteTitle menuItem whiteText margin headerItem">battleCards randomized</a>
         <a href="?page=unitTests" class="websiteTitle menuItem whiteText margin headerItem">unitTests</a>
         <a href="?page=locations" class="websiteTitle menuItem whiteText margin headerItem">locations</a>
+        <a href="?page=actionCards" class="websiteTitle menuItem whiteText margin headerItem">actionCards</a>
     </div>
 </body>
 </html>
