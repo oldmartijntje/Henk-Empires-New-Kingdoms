@@ -41,6 +41,7 @@ $definedFiches = [
     ["type" => "onGoing", "text" => "x2", "amount" => "8", "color" => ""],
     ["type" => "onReveal", "text" => "x2", "amount" => "8", "color" => ""],
     ["type" => "special", "text" => "x2", "amount" => "4", "color" => ""],
+    ["type" => "onGoingL", "text" => "x2", "amount" => "4", "color" => ""],
     // pointer
     ["type" => "aim", "text" => "", "amount" => "32", "color" => "YES"],
     ["type" => "bow", "text" => "", "amount" => "32", "color" => "YES"],
