@@ -15,6 +15,21 @@ $BattleCardConfig = [
     "defaultAmount" => 1,
 ];
 
+$LocationConfig = [
+    "id" => "L%s",
+    "defaultImage" => "assets/images/404nfL.png",
+    "defaultName" => "Weg gon loesoe",
+    "randomization" => [
+        "chooseBetween" => ["onRevealL", "onReveal", "onGoingL", "specialL", ""],
+        "amount" => 2
+    ],
+];
+
+$FicheConfig = [
+    "id" => "F%s",
+    "defaultAmount" => 8,
+];
+
 $GenerationSettings = [
     "defaultCardsAmount" => "all",
     "randomCardsAmount" => 18,
@@ -27,6 +42,7 @@ $imagesDictionary = [
     "Wind" => "assets/icons/wind.png",
     "Earth" => "assets/icons/stone.png",
     "404nf" => "assets/icons/404nf.png",
+    "404nfL" => "assets/icons/404nfL.png",
     "Power" => "assets/icons/power.png",
     "Energy" => "assets/icons/energy.png",
     "Henk" => "assets/icons/henk.png",
@@ -36,9 +52,41 @@ $imagesDictionary = [
     "revolution" => "assets/icons/revolution.png",
     "???" => "assets/icons/questionmarks.png",
     "blockgame" => "assets/icons/mijnkjweft.png",
+    "onRevealL" => "assets/icons/onrevealLocation.png",
     "onReveal" => "assets/icons/onreveal.png",
+    "specialL" => "assets/icons/specialLocation.png",
     "special" => "assets/icons/special.png",
+    "onGoingL" => "assets/icons/ongoingLocation.png",
     "onGoing" => "assets/icons/ongoing.png",
+    "brick" => "assets/icons/brick.png",
+    "Fun" => "assets/icons/partypopper.png",
+    "GGCU" => "assets/icons/ggcu.png",
+    "DUCKIFY" => "assets/icons/duckbot.png",
+    "D6" => "assets/icons/D6.png",
+    "D20" => "assets/icons/D20.png",
+    "aim" => "assets/icons/aim.png",
+    "bow" => "assets/icons/bow.png",
+    "shroobLang1" => "assets/icons/shroobLanguage1.png",
+    "shroobLang2" => "assets/icons/shroobLanguage2.png",
+    "shroobLang3" => "assets/icons/shroobLanguage3.png",
+    "shroobLang4" => "assets/icons/shroobLanguage4.png",
+    "shroobLang5" => "assets/icons/shroobLanguage5.png",
+    "shroobLang6" => "assets/icons/shroobLanguage6.png",
+    "shroobLang7" => "assets/icons/shroobLanguage7.png",
+    "shroobLang8" => "assets/icons/shroobLanguage8.png",
+    "shroobLang9" => "assets/icons/shroobLanguage9.png",
+    "shroobLang10" => "assets/icons/shroobLanguage10.png",
+    "shroobLang11" => "assets/icons/shroobLanguage11.png",
+    "shroobLang12" => "assets/icons/shroobLanguage12.png",
+    "shroobLang13" => "assets/icons/shroobLanguage13.png",
+    "shroobLang14" => "assets/icons/shroobLanguage14.png",
+    "shroobLang15" => "assets/icons/shroobLanguage15.png",
+    "shroobLang16" => "assets/icons/shroobLanguage16.png",
+    "shroobLang17" => "assets/icons/shroobLanguage17.png",
+    "shroobLang18" => "assets/icons/shroobLanguage18.png",
+    "shroobLang19" => "assets/icons/shroobLanguage19.png",
+    "eyesEmoji" => "assets/icons/eyesEmoji.png",
+    "emptySpace" => "assets/icons/emptyIcon.png",
 ];
 
 ?>

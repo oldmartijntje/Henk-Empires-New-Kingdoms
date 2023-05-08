@@ -80,14 +80,23 @@ function generateRandom($options, $emptyModel, $selectionList = [], $amountOfSel
     }
     $chosen = returnItems($selectionList, $amountOfSelectionList);
     foreach ($chosen as $value) {
-        $val = array_rand($options[$value]);
-        $random[$value] = $options[$value][$val];
+        if (array_key_exists($value, $options)) {
+            $val = array_rand($options[$value]);
+            $random[$value] = $options[$value][$val];
+        }
     }
     return $random;
 }
 
 function getTextSizeClass($card, $trueIfReturnFalseIfEcho = false) {
-    $totalText = returnTextWithoutImagesTags($card['description'] . $card['onReveal'] . $card['onGoing'] . $card['special']);
+    $text = "";
+    $checks = ["special", "onGoing", "onReveal", "description", "specialL", "onGoingL", "onRevealL"];
+    foreach ($checks as $value) {
+        if (array_key_exists($value, $card)) {
+            $text .= $card[$value];
+        }
+    }
+    $totalText = returnTextWithoutImagesTags($text);
     $value = "";
     if (strlen($totalText) > 220) {
         $value = "textSize4px";
@@ -201,6 +210,26 @@ function returnDetectedImages($text, $splitCharacter = "") {
         return [$returnString, $text];
     }
     return $returnString;
+}
+
+function getAllOptions($definedCards, $blacklistedKeys, $possibleOptions) {
+    foreach ($definedCards as $card) {
+        foreach($card as $key=>$value) {
+            if (in_array((string)$key, $blacklistedKeys)) {
+                continue;
+            } else {
+                if (!array_key_exists($key, $possibleOptions)) {
+                    $possibleOptions[$key] = [];
+                }
+                if (in_array($value, $possibleOptions[$key])) {
+                    continue;
+                } else {
+                    array_push($possibleOptions[$key],$value);
+                }
+            }
+        }
+    }
+    return $possibleOptions;
 }
 
 ?>

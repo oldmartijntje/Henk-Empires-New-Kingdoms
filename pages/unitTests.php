@@ -283,6 +283,8 @@
             "test4" => "test4.png",
             "test5" => "test5.png",
             "404nf" => "owoThisIsNotFound.exe",
+            "kaas" => "kaas.png",
+            "kaa" => "kaa.png",
         ];
         // Define test cases
         $testCasereturnTextWithImages = [
@@ -456,6 +458,16 @@
                 ],
                 "expectedOutput" => "<img title=\"test5\" class=\"henk\" src=\"test5.png\"><img title=\"test4\" class=\"henk\" src=\"test4.png\">",
             ],
+            [
+                "input" => [
+                    "text" => "kaas",
+                    "classes" => "henk",
+                    "splitCharacter" => "",
+                    "ifNotSayError" => true,
+                    "returnOnlyImages" => true,
+                ],
+                "expectedOutput" => "<img title=\"<img title=\"kaa\" class=\"henk\" src=\"kaa.png\">s\" class=\"henk\" src=\"<img title=\"kaa\" class=\"henk\" src=\"kaa.png\">s.png\">",
+            ],
         ];
     
         foreach ($testCasereturnTextWithImages as $test) {
@@ -571,6 +583,75 @@
         foreach ($testCasereturnDetectedImages as $test) {
             $result = returnDetectedImages($test["input"]["text"], $test["input"]["splitCharacter"]);
             $tests = testFunction($result, $test["expectedOutput"], $tests);
+        }
+
+        echo "<h1>Testing getAllOptions</h1>";
+        // Test cases for getAllOptions
+        $testCasesGetAllOptions = [
+            // Test case 1
+            [
+                "definedCards" => [
+                    ["color" => "red", "value" => 5],
+                    ["color" => "green", "value" => 10],
+                ],
+                "blacklistedKeys" => ["color"],
+                "possibleOptions" => [
+                    "value" => [1, 2, 3, 4, 5]
+                ],
+                "expected" => [
+                    "value" => [1, 2, 3, 4, 5, 10]
+                ]
+            ],
+            // Test case 2
+            [
+                "definedCards" => [
+                    ["color" => "red", "value" => 5],
+                    ["color" => "green", "value" => 10],
+                ],
+                "blacklistedKeys" => ["value"],
+                "possibleOptions" => [
+                    "value" => [1, 2, 3, 4, 5],
+                    "color" => []
+                ],
+                "expected" => [
+                    "value" => [1, 2, 3, 4, 5],
+                    "color" => ["red", "green"]
+                ]
+            ],
+            // Test case 3
+            [
+                "definedCards" => [
+                    ["color" => "red", "value" => 5],
+                    ["color" => "green", "value" => 10],
+                ],
+                "blacklistedKeys" => ["value"],
+                "possibleOptions" => [
+                    "value" => [1, 2, 3, 4, 5],
+                ],
+                "expected" => [
+                    "value" => [1, 2, 3, 4, 5],
+                    "color" => ["red", "green"]
+                ]
+            ],
+            // Test case 4
+            [
+                "definedCards" => [
+                    ["color" => "red", "value" => 5],
+                    ["color" => "green", "value" => 10],
+                ],
+                "blacklistedKeys" => ["value"],
+                "possibleOptions" => [
+                ],
+                "expected" => [
+                    "color" => ["red", "green"]
+                ]
+            ]
+        ];
+
+        // Run tests for getAllOptions
+        foreach ($testCasesGetAllOptions as $testCase) {
+            $result = getAllOptions($testCase["definedCards"], $testCase["blacklistedKeys"], $testCase["possibleOptions"]);
+            $tests = testFunction($result, $testCase["expected"], $tests);
         }
 
         // Print test results

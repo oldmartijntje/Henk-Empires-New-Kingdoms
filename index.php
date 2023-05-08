@@ -13,6 +13,8 @@
         "unitTests" => "pages/unitTests.php",
         "locations" => "pages/cardDesign.php",
         "money" => "models/moneyModel.php",
+        "actionCards" => "models/actionCardsModel.php",
+        "fiches" => "pages/cardDesign.php",
     );
     ?>
 
