@@ -89,7 +89,14 @@ function generateRandom($options, $emptyModel, $selectionList = [], $amountOfSel
 }
 
 function getTextSizeClass($card, $trueIfReturnFalseIfEcho = false) {
-    $totalText = returnTextWithoutImagesTags($card['description'] . $card['onReveal'] . $card['onGoing'] . $card['special']);
+    $text = "";
+    $checks = ["special", "onGoing", "onReveal", "description", "specialL", "onGoingL", "onRevealL"];
+    foreach ($checks as $value) {
+        if (array_key_exists($value, $card)) {
+            $text .= $card[$value];
+        }
+    }
+    $totalText = returnTextWithoutImagesTags($text);
     $value = "";
     if (strlen($totalText) > 220) {
         $value = "textSize4px";

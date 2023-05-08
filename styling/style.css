@@ -252,3 +252,42 @@
 .margin {
     margin: 1rem;
 }
+
+.fiche {
+    background-color: rgb(250, 233, 200);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100px;
+    height: 91px;
+    max-width: 300px;
+    max-height: 450px;
+    position: relative;
+}
+
+.fiche-footer {
+    align-items: center;
+    background-color: #ffdca3;
+    color: #6f413b;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    position: absolute;
+    bottom: 0;
+    width: calc(100% - 20px);
+}
+
+.fiche-info {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.FicheIcon {
+    width: 38px;
+    height: 38px;
+}
