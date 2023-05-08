@@ -12,6 +12,7 @@
         "battleCards" => "pages/cardDesign.php",
         "unitTests" => "pages/unitTests.php",
         "locations" => "pages/cardDesign.php",
+        "actionCards" => "models/actionCardsModel.php",
         "fiches" => "pages/cardDesign.php",
     );
     ?>
