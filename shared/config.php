@@ -30,6 +30,11 @@ $FicheConfig = [
     "defaultAmount" => 8,
 ];
 
+$MoneyConfig = [
+    "id" => "M%s",
+    "defaultAmount" => 8,
+];
+
 $GenerationSettings = [
     "defaultCardsAmount" => "all",
     "randomCardsAmount" => 18,
@@ -66,6 +71,7 @@ $imagesDictionary = [
     "D20" => "assets/icons/D20.png",
     "aim" => "assets/icons/aim.png",
     "bow" => "assets/icons/bow.png",
+    "money" => "assets/icons/coins.png",
     "shroobLang1" => "assets/icons/shroobLanguage1.png",
     "shroobLang2" => "assets/icons/shroobLanguage2.png",
     "shroobLang3" => "assets/icons/shroobLanguage3.png",

@@ -25,7 +25,9 @@ if (isset($_GET['stats']) && strtolower($_GET['stats']) == "true") {
 for ($i=0; $i < $amountOfCards; $i++) { 
     ?>
 <link rel="stylesheet" href="styling/style.css">
-<div class="fiche" onclick="console.log(<?php echo printCard($cards[$i]) ?>)">
+<div class="fiche" onclick="console.log(<?php echo printCard($cards[$i]) ?>)" <?php if ($cards[$i]["color"] != "") {
+        echo "style='background-color: " . $cards[$i]["color"] . "'";
+    } ?>>
     <div class="fiche-info" <?php if ($cards[$i]["color"] != "") {
         echo "style='background-color: " . $cards[$i]["color"] . "'";
     } ?>>
