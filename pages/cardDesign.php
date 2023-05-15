@@ -14,6 +14,7 @@
         "battleCards" => "models/battleCardModel.php",
         "locations" => "models/locationModel.php",
         "fiches" => "models/fichesModel.php",
+        "goals" => "models/goalsModel.php",
     );
     
     if (isset($_GET['page'])) {

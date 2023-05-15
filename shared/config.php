@@ -25,8 +25,22 @@ $LocationConfig = [
     ],
 ];
 
+$GoalConfig = [
+    "id" => "G%s",
+    "values" => [
+        "goalTypeValueMultiplier" => 4,
+        "insertTypeValueMultiplier" => 4,
+        "addition" => 2,
+    ]
+];
+
 $FicheConfig = [
     "id" => "F%s",
+    "defaultAmount" => 8,
+];
+
+$MoneyConfig = [
+    "id" => "M%s",
     "defaultAmount" => 8,
 ];
 
@@ -66,6 +80,12 @@ $imagesDictionary = [
     "D20" => "assets/icons/D20.png",
     "aim" => "assets/icons/aim.png",
     "bow" => "assets/icons/bow.png",
+    "money" => "assets/icons/coins.png",
+    "oreRecourse" => "assets/icons/oreRecourse.png",
+    "wheatRecourse" => "assets/icons/wheatRecourse.png",
+    "woodRecourse" => "assets/icons/woodRecourse.png",
+    "woolRecourse" => "assets/icons/woolRecourse.png",
+    "stoneRecourse" => "assets/icons/stoneRecourse.png",
     "shroobLang1" => "assets/icons/shroobLanguage1.png",
     "shroobLang2" => "assets/icons/shroobLanguage2.png",
     "shroobLang3" => "assets/icons/shroobLanguage3.png",

@@ -1,0 +1,214 @@
+.table {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #ffffff;
+    padding: 10px;
+    column-gap: 3px;
+    row-gap: 3px;
+}
+
+.card {
+    background-color: rgb(250, 233, 200);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 210px;
+    height: 111px;
+    max-width: 300px;
+    max-height: 450px;
+    position: relative;
+    font-size: 19px;
+}
+
+.card-header {
+    align-items: center;
+    background-color: #ffdca3;
+    color: #6f413b;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+}
+
+.card-header .name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.card-header .id {
+    font-size: 12px;
+}
+
+.card-image {
+    position: relative;
+}
+
+.card-image img {
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: auto;
+}
+
+.series-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.series-icon img {
+    display: block;
+    width: 35px;
+    height: 35px;
+}
+
+.type-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.type-icon img {
+    display: block;
+    width: 35px;
+    height: 35px;
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconWithNumber {
+    display: inline-block;
+    position: relative;
+}
+
+.iconWithNumber .IconNumber {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.iconWithNumber img {
+    display: block;
+    margin: auto;
+    width: 35px;
+    height: 35px;
+}
+
+.description {
+    margin-top: 10px;
+}
+
+.ability {
+    margin-top: 10px;
+}
+
+.card-footer {
+    align-items: center;
+    background-color: #ffdca3;
+    color: #6f413b;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    position: absolute;
+    bottom: 0;
+    width: calc(100% - 20px);
+}
+
+.card-footer .shop-cost,
+.card-footer .deck {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Show relevant ability */
+.card[data-ability="reveal"] .ability:nth-child(1),
+.card[data-ability="ongoing"] .ability:nth-child(2),
+.card[data-ability="special"] .ability:nth-child(3) {
+    display: flex;
+}
+
+.Icon {
+    margin: auto;
+    width: 1rem;
+    height: 1rem;
+}
+
+.ability {
+    display: flex;
+    margin-top: 10px;
+}
+
+.Icon {
+    margin-right: 5px;
+    width: 1rem;
+    height: 1rem;
+}
+
+.Icon img {
+    width: 100%;
+    height: 100%;
+}
+
+.ability .flexSpan,
+.description .flexSpan {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.ability .IconNumber {
+    font-size: 16px;
+}
+
+.IconsDisplayBox {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.card-footer.supportDeckFooterColor {
+    background-color: rgb(238, 133, 133);
+    color: rgb(109, 0, 0);
+}
+
+.displayBlock {
+    display: block;
+}
+
+.inTextImages {
+    display: inline-block;
+
+    height: 1em;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px;
+    background-color: #ffdca3;
+    color: #6f413b;
+}
+
+.headerItem {
+    display: flex;
+    align-items: center;
+}
+
+.margin {
+    margin: 1rem;
+}
