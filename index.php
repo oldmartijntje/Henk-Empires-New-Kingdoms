@@ -16,6 +16,7 @@
         "actionCards" => "models/actionCardsModel.php",
         "fiches" => "pages/cardDesign.php",
         "goals" => "pages/cardDesign.php",
+        "crafting" => "pages/cardDesign.php",
     );
     ?>
 

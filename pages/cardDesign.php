@@ -15,6 +15,7 @@
         "locations" => "models/locationModel.php",
         "fiches" => "models/fichesModel.php",
         "goals" => "models/goalsModel.php",
+        "crafting" => "models/craftingModel.php",
     );
     
     if (isset($_GET['page'])) {

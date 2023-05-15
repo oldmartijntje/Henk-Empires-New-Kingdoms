@@ -34,6 +34,15 @@ $GoalConfig = [
     ]
 ];
 
+$CraftingConfig = [
+    "id" => "C%s",
+    "defaultAmount" => 1,
+    "randomization" => [
+        "chooseBetween" => [],
+        "amount" => 0
+    ],
+];
+
 $FicheConfig = [
     "id" => "F%s",
     "defaultAmount" => 8,
@@ -81,6 +90,13 @@ $imagesDictionary = [
     "aim" => "assets/icons/aim.png",
     "bow" => "assets/icons/bow.png",
     "money" => "assets/icons/coins.png",
+    "gem1" => "assets/icons/gem1.png",
+    "gem2" => "assets/icons/gem2.png",
+    "gem3" => "assets/icons/gem3.png",
+    "gem4" => "assets/icons/gem4.png",
+    "gem5" => "assets/icons/gem5.png",
+    "gem6" => "assets/icons/gem6.png",
+    "infGlove" => "assets/icons/glove.png",
     "oreRecourse" => "assets/icons/oreRecourse.png",
     "wheatRecourse" => "assets/icons/wheatRecourse.png",
     "woodRecourse" => "assets/icons/woodRecourse.png",
@@ -107,6 +123,8 @@ $imagesDictionary = [
     "shroobLang19" => "assets/icons/shroobLanguage19.png",
     "eyesEmoji" => "assets/icons/eyesEmoji.png",
     "emptySpace" => "assets/icons/emptyIcon.png",
+    "battleCard" => "assets/icons/UnknownBattleCard.png",
+    "VP" => "assets/icons/victoryPoint.png",
 ];
 
 ?>
