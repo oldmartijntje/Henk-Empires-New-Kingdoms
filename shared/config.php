@@ -96,6 +96,7 @@ $imagesDictionary = [
     "gem4" => "assets/icons/gem4.png",
     "gem5" => "assets/icons/gem5.png",
     "gem6" => "assets/icons/gem6.png",
+    "gemR" => "assets/icons/RandomGem.png",
     "infGlove" => "assets/icons/glove.png",
     "oreRecourse" => "assets/icons/oreRecourse.png",
     "wheatRecourse" => "assets/icons/wheatRecourse.png",

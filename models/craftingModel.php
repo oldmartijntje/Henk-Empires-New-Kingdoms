@@ -79,7 +79,7 @@ for ($i=0; $i < $amountOfCards; $i++) {
     <div class="card-header">
         <div class="id"><?php echo $cards[$i]['id'] ?></div>
     </div>
-    <div class="reward card-info">
+    <div class="reward reward-header card-info">
         <h1 class="reward"><?php echo returnTextWithImages($cards[$i]['reward'], "inHeaderImages") ?></h1>
     </div>
     <div class="cost-info">
@@ -90,10 +90,8 @@ for ($i=0; $i < $amountOfCards; $i++) {
             <span class="flexSpan"><?php echo returnTextWithImages($cards[$i]['costs'], "costImages") ?></span>
         </div>
         <?php if (isset($cards[$i]['bonusText']) && $cards[$i]['bonusText'] != "") { ?>
-        <div title="On Reveal abillity" class="ability <?php getTextSizeClass($cards[$i])?>">
-            <span class="flexSpan">
+        <div title="On Reveal abillity" class="Description <?php getTextSizeClass($cards[$i])?>">
                 <span><?php echo returnTextWithImages($cards[$i]['bonusText'], "inTextImages") ?></span>
-            </span>
         </div>
         <?php } if (isset($cards[$i]['onGoing']) && $cards[$i]['onGoing'] != "") { ?>
         <div title="Ongoing abillity" class="ability <?php getTextSizeClass($cards[$i])?>">

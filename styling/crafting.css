@@ -89,7 +89,7 @@
     text-align: center;
     justify-content: center;
     align-items: center;
-    height: 80px;
+    max-height: 80px;
 }
 
 .cost-info {
@@ -238,7 +238,7 @@
 .inHeaderImages {
     display: inline-block;
 
-    height: 1em;
+    height: 3rem;
 }
 
 .header {
@@ -274,9 +274,18 @@
     max-width: 5em;
 }
 
-.reward * {
+.reward text {
     flex: 1 0 20%;
     min-height: 100%;
     /* Set a minimum width for the icons */
     max-height: 200%;
+}
+
+.reward {
+    font-size: 32px;
+    margin-top: 1rem;
+}
+
+.reward-header {
+    height: 4rem;
 }
