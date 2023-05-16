@@ -1,0 +1,291 @@
+.table {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #ffffff;
+    padding: 10px;
+    column-gap: 3px;
+    row-gap: 9px;
+}
+
+.card {
+    background-color: rgb(250, 233, 200);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 210px;
+    height: 333px;
+    max-width: 300px;
+    max-height: 450px;
+    position: relative;
+}
+
+.card-header {
+    align-items: center;
+    background-color: #ffdca3;
+    color: #6f413b;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+}
+
+.location-header {
+    color: #000000;
+    background-color: #84ffda;
+}
+
+.location {
+    background-color: rgb(179, 250, 214);
+}
+
+.card-header .name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.card-header .id {
+    font-size: 12px;
+}
+
+.card-image {
+    position: relative;
+}
+
+.card-image img {
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: auto;
+}
+
+.series-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.series-icon img {
+    display: block;
+    width: 35px;
+    height: 35px;
+}
+
+.type-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.type-icon img {
+    display: block;
+    width: 35px;
+    height: 35px;
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    max-height: 80px;
+}
+
+.cost-info {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 100%
+}
+
+.iconWithNumber {
+    display: inline-block;
+    position: relative;
+}
+
+.iconWithNumber .IconNumber {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.iconWithNumber img {
+    display: block;
+    margin: auto;
+    width: 35px;
+    height: 35px;
+}
+
+.description {
+    margin-top: 10px;
+}
+
+.ability {
+    margin-top: 10px;
+}
+
+.card-footer {
+    align-items: center;
+    background-color: #ffdca3;
+    color: #6f413b;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    position: absolute;
+    bottom: 0;
+    width: calc(100% - 20px);
+}
+
+.card-footer .shop-cost,
+.card-footer .deck {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Show relevant ability */
+.card[data-ability="reveal"] .ability:nth-child(1),
+.card[data-ability="ongoing"] .ability:nth-child(2),
+.card[data-ability="special"] .ability:nth-child(3) {
+    display: flex;
+}
+
+.Icon {
+    margin: auto;
+    width: 1rem;
+    height: 1rem;
+}
+
+.ability {
+    display: flex;
+    margin-top: 10px;
+}
+
+.Icon {
+    margin-right: 5px;
+    width: 1rem;
+    height: 1rem;
+}
+
+.Icon img {
+    width: 100%;
+    height: 100%;
+}
+
+.ability .IconNumber {
+    font-size: 16px;
+}
+
+.IconsDisplayBox {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.textSize11px * {
+    font-size: 11px;
+}
+
+.textSize10px * {
+    font-size: 10px;
+}
+
+.textSize9px * {
+    font-size: 9px;
+}
+
+.textSize8px * {
+    font-size: 8px;
+}
+
+.textSize7px * {
+    font-size: 7px;
+}
+
+.textSize6px * {
+    font-size: 6px;
+}
+
+.textSize5px * {
+    font-size: 5px;
+}
+
+.textSize4px * {
+    font-size: 4px;
+}
+
+.card-footer.supportDeckFooterColor {
+    background-color: rgb(238, 133, 133);
+    color: rgb(109, 0, 0);
+}
+
+.displayBlock {
+    display: block;
+}
+
+.inTextImages {
+    display: inline-block;
+
+    height: 1em;
+}
+
+.inHeaderImages {
+    display: inline-block;
+
+    height: 3rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px;
+    background-color: #ffdca3;
+    color: #6f413b;
+}
+
+.headerItem {
+    display: flex;
+    align-items: center;
+}
+
+.margin {
+    margin: 1rem;
+}
+
+.flexSpan {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+.flexSpan * {
+    flex: 1 0 20%;
+    min-width: 1em;
+    /* Set a minimum width for the icons */
+    max-width: 5em;
+}
+
+.reward text {
+    flex: 1 0 20%;
+    min-height: 100%;
+    /* Set a minimum width for the icons */
+    max-height: 200%;
+}
+
+.reward {
+    font-size: 32px;
+    margin-top: 1rem;
+}
+
+.reward-header {
+    height: 4rem;
+}

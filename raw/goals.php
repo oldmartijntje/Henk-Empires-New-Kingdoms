@@ -25,6 +25,7 @@ $typesOfInserts = [
     ["type" => "|woodRecourse| Recourses", "value" => 3.5, "id" => "m"],
     ["type" => "|woolRecourse| Recourses", "value" => 3.5, "id" => "n"],
     ["type" => "|stoneRecourse| Recourses", "value" => 3.5, "id" => "o"],
+    ["type" => "|gemR| Recourses", "value" => 4.2, "id" => "o"],
     ["type" => "Total Recourses", "value" => 4, "id" => "p"],
 ];
 

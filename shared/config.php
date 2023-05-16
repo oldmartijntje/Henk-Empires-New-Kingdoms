@@ -15,6 +15,19 @@ $BattleCardConfig = [
     "defaultAmount" => 1,
 ];
 
+$ActionCardConfig = [
+    "id" => "A%s",
+    "defaultImage" => "assets/images/B002.png",
+    "defaultAmount" => 1,
+    "costCalculation" => [
+        "baseNumber" => 10,
+        "ignoreAmount" => 1,
+        "multiplyCards" => 2,
+        "powerfullMultiplier" => 5
+    ]
+
+];
+
 $LocationConfig = [
     "id" => "L%s",
     "defaultImage" => "assets/images/404nfL.png",
@@ -32,6 +45,15 @@ $GoalConfig = [
         "insertTypeValueMultiplier" => 4,
         "addition" => 2,
     ]
+];
+
+$CraftingConfig = [
+    "id" => "C%s",
+    "defaultAmount" => 1,
+    "randomization" => [
+        "chooseBetween" => [],
+        "amount" => 0
+    ],
 ];
 
 $FicheConfig = [
@@ -81,6 +103,16 @@ $imagesDictionary = [
     "aim" => "assets/icons/aim.png",
     "bow" => "assets/icons/bow.png",
     "money" => "assets/icons/coins.png",
+    "Active" => "assets/icons/Active.png",
+    "Once" => "assets/icons/Once.png",
+    "gem1" => "assets/icons/gem1.png",
+    "gem2" => "assets/icons/gem2.png",
+    "gem3" => "assets/icons/gem3.png",
+    "gem4" => "assets/icons/gem4.png",
+    "gem5" => "assets/icons/gem5.png",
+    "gem6" => "assets/icons/gem6.png",
+    "gemR" => "assets/icons/RandomGem.png",
+    "infGlove" => "assets/icons/glove.png",
     "oreRecourse" => "assets/icons/oreRecourse.png",
     "wheatRecourse" => "assets/icons/wheatRecourse.png",
     "woodRecourse" => "assets/icons/woodRecourse.png",
@@ -107,6 +139,8 @@ $imagesDictionary = [
     "shroobLang19" => "assets/icons/shroobLanguage19.png",
     "eyesEmoji" => "assets/icons/eyesEmoji.png",
     "emptySpace" => "assets/icons/emptyIcon.png",
+    "battleCard" => "assets/icons/UnknownBattleCard.png",
+    "VP" => "assets/icons/victoryPoint.png",
 ];
 
 ?>
