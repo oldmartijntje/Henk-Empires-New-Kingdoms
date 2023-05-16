@@ -15,6 +15,19 @@ $BattleCardConfig = [
     "defaultAmount" => 1,
 ];
 
+$ActionCardConfig = [
+    "id" => "A%s",
+    "defaultImage" => "assets/images/B002.png",
+    "defaultAmount" => 1,
+    "costCalculation" => [
+        "baseNumber" => 10,
+        "ignoreAmount" => 1,
+        "multiplyCards" => 2,
+        "powerfullMultiplier" => 5
+    ]
+
+];
+
 $LocationConfig = [
     "id" => "L%s",
     "defaultImage" => "assets/images/404nfL.png",
@@ -90,6 +103,8 @@ $imagesDictionary = [
     "aim" => "assets/icons/aim.png",
     "bow" => "assets/icons/bow.png",
     "money" => "assets/icons/coins.png",
+    "Active" => "assets/icons/Active.png",
+    "Once" => "assets/icons/Once.png",
     "gem1" => "assets/icons/gem1.png",
     "gem2" => "assets/icons/gem2.png",
     "gem3" => "assets/icons/gem3.png",
