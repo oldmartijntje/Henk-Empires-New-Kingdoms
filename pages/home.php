@@ -18,6 +18,7 @@
         <a href="?page=locations&type=default&amount=all&stats=true" class="websiteTitle menuItem whiteText margin headerItem">locations</a>
         <a href="?page=fiches&stats=true&doubles=true" class="websiteTitle menuItem whiteText margin headerItem">fiches</a>
         <a href="?page=goals&stats=False" class="websiteTitle menuItem whiteText margin headerItem">goals</a>
+        <a href="?page=crafting&stats=False&type=default&&amount=all" class="websiteTitle menuItem whiteText margin headerItem">crafting</a>
     </div>
 </body>
 </html>
